@@ -1,0 +1,3690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patil and Sons – Wagholi, Pune</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --saffron:#F95700;
+    --saffron2:#FF8C00;
+    --saffron-light:#FFF0E6;
+    --saffron-mid:#f95f06;
+    --green:#1B8A3C;
+    --green-light:#E3F5E8;
+    --white:#FFFFFF;
+    --cream:#FAFAF8;
+    --card:#FFFFFF;
+    --text:#151515;
+    --muted:#9A9A9A;
+    --border:#EDEBE6;
+    --red:#E02020;
+    --like:#FF3358;
+    --shadow:0 8px 32px rgba(249,87,0,0.14);
+    --shadow2:0 2px 12px rgba(0,0,0,0.08);
+    --radius:20px;
+  }
+  html,body{margin:0;padding:0;}
+  body{
+    background:#fa4c02;
+    font-family:'Nunito',sans-serif;
+    color:var(--text);
+    width:100%;
+    min-height:100vh;
+    padding-bottom:100px;
+  }
+
+  /* ── RESPONSIVE CONTAINER ── */
+  .page-wrap{max-width:1200px;margin:0 auto;}
+
+  /* ── DESKTOP LAYOUT ── */
+  @media(min-width:900px){
+    html{background:linear-gradient(160deg,#FDF6EE 0%,#F8F2EA 40%,#EEF5EE 100%);}
+    body{background:transparent;padding-bottom:0;}
+
+    /* Top navbar for desktop */
+    .sticky-bar{
+      position:fixed;top:0;left:0;right:0;width:100%;max-width:100%;
+      padding:0 60px;height:72px;display:flex;align-items:center;
+      background:rgba(255,255,255,0.96);
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid rgba(249,87,0,0.1);z-index:100;
+      box-shadow:0 2px 24px rgba(0,0,0,0.08);
+    }
+    .sticky-name{font-size:1.3rem;}
+    .search-expand{
+      position:absolute;left:50%;transform:translateX(-50%);
+      width:400px;top:12px;
+    }
+    .search-expand input{border-radius:30px;}
+
+    /* Hero becomes wide banner */
+    .hero{border-radius:0;min-height:340px;padding:60px 80px;}
+    .restaurant-name{font-size:4.5rem;}
+    
+    
+    
+    .hero-info{gap:14px;}
+    
+    
+
+    /* Main content grid */
+    .desktop-grid{
+      display:grid;
+      grid-template-columns:260px 1fr;
+      gap:28px;
+      max-width:1280px;
+      margin:32px auto;
+      padding:0 60px;
+      align-items:start;
+    }
+
+    /* Left sidebar */
+    .desktop-sidebar{
+      position:sticky;top:80px;
+      background:#fff;border-radius:20px;
+      padding:20px;
+      box-shadow:0 4px 24px rgba(0,0,0,0.07);
+      border:1.5px solid rgba(249,87,0,0.08);
+    }
+    .sidebar-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:14px;color:#1c1c1c;}
+    .sidebar-cat-item{
+      display:flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:10px;cursor:pointer;
+      font-size:0.85rem;font-weight:500;color:#555;
+      transition:all .15s;margin-bottom:4px;
+    }
+    .sidebar-cat-item:hover{background:var(--saffron-light);color:var(--saffron);}
+    .sidebar-cat-item.active{background:linear-gradient(135deg,var(--saffron),var(--saffron2));color:#fff;font-weight:800;box-shadow:0 4px 12px rgba(249,87,0,0.3);}
+
+    /* Right main content */
+    .desktop-main{}
+
+    /* Food grid — more columns on desktop */
+    .food-grid{grid-template-columns:repeat(4,1fr);gap:16px;}
+    .img-circle{width:100px;height:100px;}
+
+    /* Section padding */
+    .section{padding:0;}
+    .cat-section{display:none;}
+    .veg-toggle{margin:0 0 16px;}
+
+    /* Liked section */
+    .liked-section{padding:0 0 0;}
+
+    /* Contact section */
+    .contact-section{margin:24px 0 0;}
+
+    /* Bottom nav hidden on desktop */
+    .bottom-nav{display:none;}
+
+    /* Desktop header cart */
+    .desktop-nav-right{display:flex;align-items:center;gap:16px;margin-left:auto;}
+    .desktop-cart-btn{
+      display:flex;align-items:center;gap:8px;
+      background:var(--saffron);color:#fff;
+      border:none;border-radius:12px;padding:10px 20px;
+      font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:700;
+      cursor:pointer;transition:background .15s;
+    }
+    .desktop-cart-btn:hover{background:#e55e00;}
+
+    /* Floating cart - adjust for desktop */
+    .floating-cart{
+      bottom:24px;
+      max-width:500px;
+      left:50%;transform:translateX(-50%);
+    }
+
+    /* Drawers full width on mobile, contained on desktop */
+    .cart-drawer,.checkout-sheet,.pay-sheet{max-width:480px;left:50%;transform:translateX(-50%) translateY(105%);}
+    .cart-drawer.open,.checkout-sheet.open,.pay-sheet.open{transform:translateX(-50%) translateY(0);}
+
+    /* WA float */
+    #waFloat{bottom:100px;right:32px;}
+  }
+
+  @media(min-width:1200px){
+    .food-grid{grid-template-columns:repeat(5,1fr);}
+  }
+
+  @media(max-width:899px){
+    .desktop-grid{display:block;padding:0;}
+    .desktop-sidebar{display:none;}
+    .desktop-main{display:block;}
+    .desktop-nav-right .desktop-cart-btn{display:none;}
+  }
+  /* ── STICKY HEADER (scroll) ── */
+  .sticky-bar{
+    background:rgba(255,255,255,0.97);
+    padding:11px 16px;
+    border-bottom:none;
+    position:sticky;top:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    box-shadow:0 1px 0 #EDEBE6, 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .sticky-name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.2rem;font-weight:700;
+    background:linear-gradient(90deg,var(--saffron),var(--saffron2));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .search-btn{
+    width:38px;height:38px;border-radius:14px;
+    border:none;
+    background:linear-gradient(135deg,var(--saffron-light),#FFE8D0);
+    display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;
+    box-shadow:0 2px 8px rgba(249,87,0,0.15);
+  }
+  .search-expand{width:100%;margin-top:8px;display:none;}
+  .search-expand.open{display:block;}
+  .search-expand input{width:100%;padding:9px 16px;border:1.5px solid var(--saffron-mid);border-radius:30px;font-family:'Nunito',sans-serif;font-size:0.82rem;outline:none;background:var(--saffron-light);color:var(--text);}
+  .search-expand input:focus{border-color:var(--saffron);}
+  .search-expand input::placeholder{color:var(--muted);}
+
+  /* ── CATEGORY TABS ── */
+  .cat-section{padding:14px 16px 0;}
+  .cat-heading{font-size:0.68rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--saffron);margin-bottom:9px;}
+  .cat-tabs{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;padding-bottom:3px;}
+  .cat-tabs::-webkit-scrollbar{display:none;}
+  .cat-tab{
+    flex-shrink:0;padding:7px 16px;border-radius:30px;
+    border:2px solid #EDEBE6;background:#fff;
+    font-size:0.76rem;font-weight:700;color:#777;cursor:pointer;
+    transition:all .2s;white-space:nowrap;
+    box-shadow:0 2px 6px rgba(0,0,0,0.04);
+  }
+  .cat-tab:hover{border-color:var(--saffron);color:var(--saffron);background:var(--saffron-light);}
+  .cat-tab.active{
+    background:linear-gradient(135deg,var(--saffron),var(--saffron2));
+    border-color:transparent;color:#fff;font-weight:800;
+    box-shadow:0 4px 14px rgba(249,87,0,0.35);
+    transform:translateY(-1px);
+  }
+
+  /* ── VEG/NONVEG TOGGLE ── */
+  .veg-toggle{display:flex;gap:10px;margin:14px 16px 0;}
+  .veg-btn{
+    flex:1;padding:10px;border-radius:14px;border:2px solid #EDEBE6;
+    background:#fff;font-size:0.78rem;font-weight:700;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:6px;transition:all .2s;
+    box-shadow:0 2px 8px rgba(0,0,0,0.04);
+  }
+  .veg-btn .dot{width:10px;height:10px;border-radius:50%;border:2px solid;}
+  .veg-btn.veg .dot{border-color:var(--green);background:var(--green);}
+  .veg-btn.nonveg .dot{border-color:var(--red);background:var(--red);}
+  .veg-btn.active.veg{background:var(--green-light);border-color:var(--green);color:var(--green);}
+  .veg-btn.active.nonveg{background:#FFEBEE;border-color:var(--red);color:var(--red);}
+
+  /* ── SECTION ── */
+  .section{padding:16px 16px 4px;background:transparent;}
+  .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;}
+  .section-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--text);letter-spacing:-0.3px;}
+  .section-count{font-size:0.72rem;color:var(--muted);}
+
+  /* ── FOOD GRID ── */
+  .food-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 10px;}
+
+  .food-card{
+    display:flex;flex-direction:column;align-items:center;cursor:pointer;
+    animation:popIn .35s ease both;
+    padding:10px 6px 12px;
+    border-radius:20px;
+    background:#fff;
+    box-shadow:0 2px 12px rgba(0,0,0,0.06);
+    border:1.5px solid rgba(249,87,0,0.06);
+    transition:all .22s ease;
+  }
+  .food-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 28px rgba(249,87,0,0.16);
+    border-color:rgba(249,87,0,0.2);
+  }
+  @keyframes popIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+  .food-card:nth-child(1){animation-delay:0ms}
+  .food-card:nth-child(2){animation-delay:50ms}
+  .food-card:nth-child(3){animation-delay:100ms}
+  .food-card:nth-child(4){animation-delay:150ms}
+  .food-card:nth-child(5){animation-delay:200ms}
+  .food-card:nth-child(6){animation-delay:250ms}
+  .food-card:nth-child(7){animation-delay:300ms}
+  .food-card:nth-child(8){animation-delay:350ms}
+  .food-card:nth-child(9){animation-delay:400ms}
+
+  /* CIRCLE IMAGE */
+  .img-circle{
+    position:relative;width:82px;height:82px;border-radius:50%;
+    overflow:hidden;margin-bottom:8px;
+    box-shadow:0 4px 14px rgba(249,87,0,0.2);
+    border:3px solid #fff;
+    outline:2px solid rgba(249,87,0,0.15);
+    transition:transform .22s,box-shadow .22s;
+  }
+  .food-card:hover .img-circle{transform:scale(1.08);box-shadow:0 8px 22px rgba(249,87,0,0.32);}
+  .img-circle img{width:100%;height:100%;object-fit:cover;}
+
+  /* VEG/NONVEG DOT */
+  .type-dot{
+    position:absolute;top:5px;left:5px;
+    width:14px;height:14px;border-radius:3px;
+    background:#fff;border:1.5px solid;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .type-dot::after{content:'';width:6px;height:6px;border-radius:50%;display:block;}
+  .type-dot.veg{border-color:var(--green);}
+  .type-dot.veg::after{background:var(--green);}
+  .type-dot.nonveg{border-color:var(--red);}
+  .type-dot.nonveg::after{background:var(--red);border-radius:0;clip-path:polygon(50% 0%,0% 100%,100% 100%);}
+
+  /* LIKE BTN */
+  .like-btn{
+    position:absolute;bottom:3px;right:3px;
+    width:22px;height:22px;border-radius:50%;
+    background:rgba(255,255,255,0.9);border:none;cursor:pointer;
+    font-size:0.72rem;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 1px 5px rgba(0,0,0,0.2);color:#ccc;
+    transition:transform .15s;padding:0;
+  }
+  .like-btn.liked{color:var(--like);}
+  .like-btn.pop{animation:heartpop .28s ease;}
+  @keyframes heartpop{0%{transform:scale(1)}50%{transform:scale(1.5)}100%{transform:scale(1)}}
+
+  .food-name{font-size:0.78rem;font-weight:800;color:var(--text);text-align:center;line-height:1.3;margin-bottom:3px;font-family:'Outfit',sans-serif;}
+  .food-price{font-size:0.78rem;font-weight:900;color:var(--saffron);letter-spacing:-0.2px;}
+  .food-rating{font-size:0.64rem;color:var(--muted);display:flex;align-items:center;gap:2px;margin-top:2px;}
+
+  /* NO RESULTS */
+  .no-result{grid-column:1/-1;text-align:center;padding:30px 0;color:var(--muted);font-size:0.85rem;}
+  .no-result span{font-size:2.5rem;display:block;margin-bottom:8px;}
+
+  /* ── LIKED STRIP ── */
+  .liked-section{padding:14px 16px 0;}
+  .liked-strip{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;}
+  .liked-strip::-webkit-scrollbar{display:none;}
+  .liked-chip{
+    flex-shrink:0;display:flex;align-items:center;gap:7px;
+    background:#fff;border:2px solid rgba(249,87,0,0.15);border-radius:30px;
+    padding:5px 13px 5px 6px;font-size:0.72rem;font-weight:700;
+    box-shadow:0 2px 8px rgba(249,87,0,0.1);
+  }
+  .liked-chip img{width:26px;height:26px;border-radius:50%;object-fit:cover;}
+  .liked-empty{font-size:0.78rem;color:var(--muted);font-style:italic;padding:4px 0;}
+
+  /* ── CONTACT SECTION ── */
+  .contact-section{
+    margin:20px 16px 100px;
+    background: linear-gradient(135deg,#F95700 0%,#FF6B00 50%,#FF8C00 100%);
+    border-radius:24px;padding:22px;color:#fff;
+    box-shadow:0 12px 40px rgba(249,87,0,0.3), 0 2px 0 rgba(255,255,255,0.15) inset;
+    overflow:visible;
+  }
+  .contact-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+  .contact-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:0.82rem;}
+  .contact-icon{width:34px;height:34px;background:rgba(255,255,255,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+  .contact-row a{color:#fff;text-decoration:none;font-weight:500;}
+  .contact-row a:hover{text-decoration:underline;}
+  .hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px;}
+  .hour-chip{background:rgba(255,255,255,0.18);border-radius:10px;padding:8px 10px;font-size:0.72rem;}
+  .hour-chip .day{font-weight:600;margin-bottom:2px;}
+  .hour-chip .time{opacity:.88;}
+
+
+  /* ══════════════════════════════════════
+     CART + CHECKOUT  (Zomato/Swiggy style)
+  ══════════════════════════════════════ */
+
+  /* Cart badge button in sticky bar */
+  .cart-btn{
+    position:relative;width:40px;height:40px;border-radius:50%;
+    background:var(--saffron);border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:1.15rem;
+    box-shadow:0 3px 12px rgba(255,107,0,0.4);flex-shrink:0;
+  }
+  .cart-badge{
+    position:absolute;top:-3px;right:-3px;
+    background:#e53935;color:#fff;font-size:0.55rem;font-weight:800;
+    min-width:17px;height:17px;border-radius:10px;
+    display:none;align-items:center;justify-content:center;
+    border:2px solid #fff;padding:0 3px;
+  }
+  .cart-badge.show{display:flex;}
+
+  /* +Add / stepper on food card */
+  .add-btn{
+    margin-top:5px;background:var(--saffron);color:#fff;border:none;
+    border-radius:20px;padding:5px 14px;font-size:0.7rem;font-weight:700;
+    cursor:pointer;font-family:'Nunito',sans-serif;
+    transition:background .15s,transform .1s;
+    display:flex;align-items:center;gap:3px;white-space:nowrap;
+  }
+  .add-btn:active{transform:scale(.94);}
+  .qty-stepper{
+    margin-top:5px;display:flex;align-items:center;
+    border:none;border-radius:20px;overflow:hidden;
+    background:linear-gradient(135deg,var(--saffron),var(--saffron2));
+    box-shadow:0 3px 10px rgba(249,87,0,0.3);
+  }
+  .qty-stepper button{
+    width:28px;height:26px;border:none;background:transparent;color:#fff;
+    font-size:1.1rem;font-weight:700;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;padding:0;line-height:1;
+  }
+  .qty-stepper span{
+    min-width:26px;text-align:center;font-size:0.78rem;
+    font-weight:700;color:var(--saffron);background:#fff;
+    display:flex;align-items:center;justify-content:center;height:26px;
+  }
+
+  /* ── FLOATING CART BAR (Swiggy style) ── */
+  .floating-cart{
+    position:fixed;bottom:80px;left:50%;transform:translateX(-50%);
+    width:calc(100% - 28px);max-width:472px;
+    background:linear-gradient(135deg,#F95700,#FF8C00);color:#fff;
+    border-radius:18px;padding:14px 18px;
+    display:none;align-items:center;justify-content:space-between;
+    box-shadow:0 8px 32px rgba(249,87,0,0.5), 0 1px 0 rgba(255,255,255,0.2) inset;
+    z-index:200;animation:floatUp .25s ease;
+  }
+  .floating-cart.show{display:flex;}
+  @keyframes floatUp{
+    from{transform:translateX(-50%) translateY(16px);opacity:0;}
+    to{transform:translateX(-50%) translateY(0);opacity:1;}
+  }
+  .fc-left{display:flex;flex-direction:column;gap:1px;}
+  .fc-items{font-size:0.72rem;opacity:.88;}
+  .fc-price{font-size:1rem;font-weight:800;}
+  .fc-btn{
+    background:#fff;color:var(--saffron);border:none;
+    border-radius:10px;padding:9px 18px;
+    font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:800;
+    cursor:pointer;white-space:nowrap;
+  }
+
+  /* ── OVERLAY ── */
+  .cart-overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,0);
+    z-index:498;pointer-events:none;
+    transition:background .28s;
+  }
+  .cart-overlay.open{background:rgba(0,0,0,0.5);pointer-events:all;}
+
+  /* ── CART DRAWER (slides from bottom) ── */
+  .cart-drawer{
+    position:fixed;bottom:0;left:50%;
+    transform:translateX(-50%) translateY(105%);
+    width:100%;max-width:500px;
+    background:#FAFAF8;border-radius:24px 24px 0 0;
+    z-index:499;transition:transform .32s cubic-bezier(.4,0,.2,1);
+    max-height:86vh;display:flex;flex-direction:column;
+    box-shadow:0 -8px 40px rgba(0,0,0,0.18);
+  }
+  .cart-drawer.open{transform:translateX(-50%) translateY(0);}
+  .cart-handle{
+    width:40px;height:4px;background:#e0e0e0;
+    border-radius:4px;margin:12px auto 0;flex-shrink:0;
+  }
+  .cart-head{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 18px 12px;border-bottom:1px solid #f5f5f5;flex-shrink:0;
+  }
+  .cart-head-title{font-size:1rem;font-weight:700;color:#1c1c1c;display:flex;align-items:center;gap:6px;}
+  .cart-head-close{
+    width:32px;height:32px;border-radius:50%;background:#f5f5f5;
+    border:none;cursor:pointer;font-size:0.9rem;
+    display:flex;align-items:center;justify-content:center;color:#555;
+  }
+  .cart-body{overflow-y:auto;flex:1;padding:0 18px;}
+  .cart-body::-webkit-scrollbar{width:3px;}
+  .cart-body::-webkit-scrollbar-thumb{background:#f0d0b0;border-radius:3px;}
+
+  /* restaurant tag inside cart */
+  .cart-resto-tag{
+    display:flex;align-items:center;gap:8px;
+    padding:12px 0 8px;border-bottom:1px dashed #f0e0cc;margin-bottom:4px;
+  }
+  .cart-resto-icon{font-size:1.2rem;}
+  .cart-resto-name{font-size:0.82rem;font-weight:700;color:#1c1c1c;}
+
+  .cart-empty-box{
+    text-align:center;padding:48px 20px;
+  }
+  .cart-empty-icon{font-size:3.5rem;display:block;margin-bottom:12px;}
+  .cart-empty-title{font-size:0.95rem;font-weight:700;color:#1c1c1c;margin-bottom:6px;}
+  .cart-empty-sub{font-size:0.78rem;color:#888;}
+
+  /* cart item row */
+  .cart-item-row{
+    display:flex;align-items:center;gap:12px;
+    padding:14px 0;border-bottom:1px solid #fafafa;
+  }
+  .ci-dot{
+    width:14px;height:14px;border-radius:3px;
+    border:1.5px solid;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .ci-dot.veg{border-color:#2E7D32;}
+  .ci-dot.veg::after{content:'';width:6px;height:6px;border-radius:50%;background:#2E7D32;display:block;}
+  .ci-dot.nonveg{border-color:#e53935;}
+  .ci-dot.nonveg::after{content:'';width:6px;height:6px;border-radius:50%;background:#e53935;display:block;}
+  .ci-info{flex:1;}
+  .ci-name{font-size:0.88rem;font-weight:600;color:#1c1c1c;margin-bottom:2px;}
+  .ci-price{font-size:0.78rem;color:#888;}
+  .ci-stepper{
+    display:flex;align-items:center;
+    border:1.5px solid var(--saffron);border-radius:8px;overflow:hidden;flex-shrink:0;
+  }
+  .ci-stepper button{
+    width:30px;height:30px;border:none;background:#fff;color:var(--saffron);
+    font-size:1.1rem;font-weight:800;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .ci-stepper button:active{background:var(--saffron-light);}
+  .ci-stepper span{
+    width:32px;text-align:center;font-size:0.88rem;
+    font-weight:700;color:var(--saffron);
+  }
+
+  /* bill details inside cart */
+  .cart-bill{
+    background:#f9f6f2;border-radius:14px;
+    padding:14px;margin:12px 0;
+  }
+  .cart-bill-title{font-size:0.75rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:.6px;color:#888;margin-bottom:10px;}
+  .bill-row{display:flex;justify-content:space-between;font-size:0.82rem;color:#555;margin-bottom:7px;}
+  .bill-row.total{
+    font-weight:700;color:#1c1c1c;font-size:0.92rem;
+    border-top:1px dashed #ddd;padding-top:8px;margin-top:4px;margin-bottom:0;
+  }
+  .bill-row span:last-child{font-weight:600;}
+
+  /* cart footer */
+  .cart-foot{
+    padding:14px 18px 20px;border-top:1px solid #f5f5f5;flex-shrink:0;
+  }
+  .cart-checkout-btn{
+    width:100%;padding:16px;background:linear-gradient(135deg,var(--saffron),var(--saffron2));color:#fff;
+    border:none;border-radius:14px;font-family:'Nunito',sans-serif;
+    font-size:0.95rem;font-weight:700;cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;
+    box-shadow:0 4px 18px rgba(255,107,0,0.35);transition:background .15s;
+  }
+  .cart-checkout-btn:active{background:#e55e00;}
+  .cart-checkout-btn .cob-left{display:flex;align-items:center;gap:8px;}
+  .cart-checkout-btn .cob-badge{
+    background:rgba(255,255,255,0.25);
+    border-radius:6px;padding:2px 8px;font-size:0.78rem;
+  }
+  .cart-checkout-btn .cob-right{font-size:0.88rem;opacity:.9;}
+
+  /* ══ CHECKOUT MODAL ══ */
+  .checkout-overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,0);
+    z-index:599;pointer-events:none;transition:background .28s;
+  }
+  .checkout-overlay.open{background:rgba(0,0,0,0.55);pointer-events:all;}
+  .checkout-sheet{
+    position:fixed;bottom:0;left:50%;
+    transform:translateX(-50%) translateY(105%);
+    width:100%;max-width:500px;
+    background:#fff;border-radius:20px 20px 0 0;
+    z-index:600;transition:transform .32s cubic-bezier(.4,0,.2,1);
+    max-height:92vh;display:flex;flex-direction:column;
+    box-shadow:0 -8px 40px rgba(0,0,0,0.2);
+  }
+  .checkout-sheet.open{transform:translateX(-50%) translateY(0);}
+  .checkout-handle{width:40px;height:4px;background:#e0e0e0;border-radius:4px;margin:12px auto 0;flex-shrink:0;}
+  .checkout-head{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 18px;border-bottom:1px solid #f5f5f5;flex-shrink:0;
+  }
+  .checkout-head-title{font-size:1rem;font-weight:700;color:#1c1c1c;}
+  .checkout-head-close{
+    width:32px;height:32px;border-radius:50%;background:#f5f5f5;
+    border:none;cursor:pointer;font-size:0.9rem;
+    display:flex;align-items:center;justify-content:center;color:#555;
+  }
+  .checkout-scroll{overflow-y:auto;flex:1;padding:0 18px 10px;}
+  .checkout-scroll::-webkit-scrollbar{width:3px;}
+
+  /* delivery address card */
+  .co-section-title{
+    font-size:0.72rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:.8px;color:#888;margin:16px 0 10px;
+  }
+  .order-type-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+  .ot-card{
+    border:2px solid #efefef;border-radius:14px;padding:14px 10px;
+    background:#fff;cursor:pointer;text-align:center;
+    transition:all .18s;font-family:'Nunito',sans-serif;
+  }
+  .ot-card.active{border-color:var(--saffron);background:var(--saffron-light);}
+  .ot-card-icon{font-size:1.8rem;display:block;margin-bottom:5px;}
+  .ot-card-label{font-size:0.8rem;font-weight:700;color:#1c1c1c;}
+  .ot-card-sub{font-size:0.68rem;color:#888;margin-top:2px;}
+  .ot-card.active .ot-card-label{color:var(--saffron);}
+
+  /* form fields Swiggy style */
+  .co-field{margin-bottom:14px;}
+  .co-field label{
+    display:block;font-size:0.75rem;font-weight:700;
+    color:#1c1c1c;margin-bottom:6px;
+  }
+  .co-field label span{color:#e53935;}
+  .co-input{
+    width:100%;padding:13px 14px;
+    border:1.5px solid #e8e8e8;border-radius:12px;
+    font-family:'Nunito',sans-serif;font-size:0.88rem;
+    color:#1c1c1c;outline:none;background:#fff;
+    transition:border .18s,box-shadow .18s;
+  }
+  .co-input:focus{border-color:var(--saffron);box-shadow:0 0 0 3px rgba(255,107,0,0.1);}
+  .co-input::placeholder{color:#bbb;}
+
+  /* order summary card */
+  .co-summary-card{
+    background:#f9f6f2;border-radius:14px;padding:14px;margin-bottom:16px;
+  }
+  .co-sum-item{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:0.82rem;color:#555;margin-bottom:7px;
+  }
+  .co-sum-item:last-child{
+    font-weight:700;color:#1c1c1c;font-size:0.9rem;
+    border-top:1px dashed #ddd;padding-top:8px;margin-top:4px;margin-bottom:0;
+  }
+  .co-sum-item .tag{
+    background:var(--saffron-mid);color:var(--saffron);
+    font-size:0.62rem;font-weight:700;padding:2px 7px;border-radius:6px;margin-left:6px;
+  }
+
+  /* place order btn */
+  .co-place-btn{
+    width:100%;padding:17px;background:var(--green);color:#fff;
+    border:none;border-radius:14px;font-family:'Nunito',sans-serif;
+    font-size:0.95rem;font-weight:700;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    box-shadow:0 4px 18px rgba(46,125,50,0.3);
+    transition:background .15s;margin-bottom:6px;
+  }
+  .co-place-btn:active{background:#1b5e20;}
+
+  /* ══ SUCCESS SCREEN ══ */
+  .success-overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,0.6);
+    z-index:700;display:none;align-items:center;justify-content:center;padding:20px;
+  }
+  .success-overlay.open{display:flex;}
+  .success-card{
+    background:#fff;border-radius:24px;padding:32px 24px;
+    text-align:center;width:100%;max-width:340px;
+    animation:cardPop .4s cubic-bezier(.175,.885,.32,1.275) both;
+  }
+  @keyframes cardPop{from{transform:scale(.72);opacity:0}to{transform:scale(1);opacity:1}}
+  .sc-lottie{font-size:5rem;display:block;margin-bottom:4px;animation:bounce .6s ease infinite alternate;}
+  @keyframes bounce{from{transform:translateY(0)}to{transform:translateY(-8px)}}
+  .sc-title{font-family:'DM Serif Display',serif;font-size:1.5rem;font-weight:400;color:var(--green);margin-bottom:6px;}
+  .sc-sub{font-size:0.82rem;color:#555;line-height:1.6;margin-bottom:8px;}
+  .sc-order-id{
+    display:inline-block;background:var(--saffron-light);
+    color:var(--saffron);font-size:0.78rem;font-weight:700;
+    padding:5px 14px;border-radius:20px;margin-bottom:20px;
+  }
+  .sc-info-row{
+    display:flex;gap:10px;margin-bottom:20px;
+  }
+  .sc-info-chip{
+    flex:1;background:#f9f6f2;border-radius:12px;padding:10px 8px;
+    font-size:0.72rem;color:#555;
+  }
+  .sc-info-chip strong{display:block;color:#1c1c1c;font-size:0.82rem;margin-bottom:2px;}
+  .sc-close-btn{
+    width:100%;padding:14px;background:var(--saffron);color:#fff;
+    border:none;border-radius:12px;font-family:'Nunito',sans-serif;
+    font-size:0.9rem;font-weight:700;cursor:pointer;
+  }
+
+
+
+  /* ══ PAYMENT SHEET (Zomato style) ══ */
+  .pay-overlay{position:fixed;inset:0;background:rgba(0,0,0,0);z-index:699;pointer-events:none;transition:background .28s;}
+  .pay-overlay.open{background:rgba(0,0,0,0.55);pointer-events:all;}
+  .pay-sheet{
+    position:fixed;bottom:0;left:50%;
+    transform:translateX(-50%) translateY(105%);
+    width:100%;max-width:500px;
+    background:#fff;border-radius:20px 20px 0 0;
+    z-index:700;transition:transform .32s cubic-bezier(.4,0,.2,1);
+    max-height:92vh;display:flex;flex-direction:column;
+    box-shadow:0 -8px 40px rgba(0,0,0,0.2);
+  }
+  .pay-sheet.open{transform:translateX(-50%) translateY(0);}
+  .pay-handle{width:40px;height:4px;background:#e0e0e0;border-radius:4px;margin:12px auto 0;flex-shrink:0;}
+  .pay-head{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 18px;border-bottom:1px solid #f5f5f5;flex-shrink:0;
+  }
+  .pay-head-title{font-size:1rem;font-weight:700;color:#1c1c1c;}
+  .pay-head-close{width:32px;height:32px;border-radius:50%;background:#f5f5f5;border:none;cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center;color:#555;}
+  .pay-scroll{overflow-y:auto;flex:1;padding:0 18px 20px;}
+  .pay-scroll::-webkit-scrollbar{width:3px;}
+
+  /* amount to pay strip */
+  .pay-amount-strip{
+    background:linear-gradient(90deg,var(--saffron),#FF8C00);
+    border-radius:14px;padding:14px 16px;
+    display:flex;align-items:center;justify-content:space-between;
+    margin:14px 0;color:#fff;
+  }
+  .pay-amount-label{font-size:0.78rem;opacity:.9;}
+  .pay-amount-val{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;}
+
+  /* section title */
+  .pay-sec-title{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#888;margin:16px 0 10px;}
+
+  /* payment method cards */
+  .pay-method-row{
+    display:flex;align-items:center;gap:12px;
+    padding:13px 14px;border:1.5px solid #efefef;border-radius:14px;
+    cursor:pointer;margin-bottom:8px;transition:all .18s;background:#fff;
+    position:relative;
+  }
+  .pay-method-row:hover{border-color:var(--saffron);}
+  .pay-method-row.selected{border-color:var(--saffron);background:var(--saffron-light);}
+  .pay-method-icon{
+    width:42px;height:42px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.3rem;flex-shrink:0;
+  }
+  .pay-method-info{flex:1;}
+  .pay-method-name{font-size:0.88rem;font-weight:700;color:#1c1c1c;margin-bottom:2px;}
+  .pay-method-sub{font-size:0.72rem;color:#888;}
+  .pay-radio{
+    width:20px;height:20px;border-radius:50%;
+    border:2px solid #ddd;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    transition:all .18s;
+  }
+  .pay-method-row.selected .pay-radio{border-color:var(--saffron);}
+  .pay-method-row.selected .pay-radio::after{
+    content:'';width:10px;height:10px;
+    border-radius:50%;background:var(--saffron);display:block;
+  }
+  .pay-badge{
+    position:absolute;top:8px;right:38px;
+    background:#e8f5e9;color:#2e7d32;
+    font-size:0.58rem;font-weight:700;padding:2px 7px;border-radius:10px;
+  }
+
+  /* UPI input */
+  .upi-input-wrap{
+    display:none;margin-top:8px;
+    background:#f9f6f2;border-radius:10px;padding:10px 12px;
+  }
+  .upi-input-wrap.show{display:flex;gap:8px;align-items:center;}
+  .upi-input{
+    flex:1;border:1.5px solid #e0e0e0;border-radius:10px;
+    padding:9px 12px;font-size:0.82rem;font-family:'Nunito',sans-serif;
+    outline:none;background:#fff;
+  }
+  .upi-input:focus{border-color:var(--saffron);}
+  .upi-verify-btn{
+    background:var(--saffron);color:#fff;border:none;
+    border-radius:10px;padding:9px 14px;font-size:0.78rem;
+    font-weight:700;cursor:pointer;white-space:nowrap;font-family:'Nunito',sans-serif;
+  }
+
+  /* UPI apps row */
+  .upi-apps{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;}
+  .upi-app{
+    display:flex;flex-direction:column;align-items:center;gap:4px;
+    cursor:pointer;padding:8px 12px;border:1.5px solid #efefef;
+    border-radius:12px;transition:all .18s;background:#fff;
+  }
+  .upi-app:hover{border-color:var(--saffron);}
+  .upi-app.selected{border-color:var(--saffron);background:var(--saffron-light);}
+  .upi-app-icon{font-size:1.6rem;}
+  .upi-app-name{font-size:0.65rem;font-weight:600;color:#555;}
+
+  /* card form */
+  .card-form{display:none;margin-top:8px;background:#f9f6f2;border-radius:12px;padding:12px;}
+  .card-form.show{display:block;}
+  .card-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .card-input{
+    width:100%;border:1.5px solid #e0e0e0;border-radius:10px;
+    padding:10px 12px;font-size:0.82rem;font-family:'Nunito',sans-serif;
+    outline:none;background:#fff;margin-bottom:8px;
+  }
+  .card-input:focus{border-color:var(--saffron);}
+
+  /* pay now button */
+  .pay-now-btn{
+    width:100%;padding:17px;background:linear-gradient(135deg,var(--saffron),var(--saffron2));color:#fff;
+    border:none;border-radius:14px;font-family:'Nunito',sans-serif;
+    font-size:1rem;font-weight:800;cursor:pointer;margin-top:16px;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    box-shadow:0 4px 18px rgba(255,107,0,0.4);transition:background .15s;
+  }
+  .pay-now-btn:active{background:#e55e00;}
+  .pay-now-btn .pnb-right{font-size:0.82rem;opacity:.85;}
+
+  /* safe badge */
+  .safe-badge{
+    display:flex;align-items:center;justify-content:center;gap:5px;
+    font-size:0.68rem;color:#888;margin-top:10px;padding-bottom:6px;
+  }
+
+
+  /* ══ AUTH / PROFILE SYSTEM ══ */
+
+  /* Profile icon in header */
+  .profile-btn{
+    width:38px;height:38px;border-radius:50%;
+    background:var(--saffron-light);border:2px solid var(--saffron-mid);
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    font-size:1rem;transition:all .18s;flex-shrink:0;
+  }
+  .profile-btn:hover{background:var(--saffron);color:#fff;}
+  .profile-btn.logged-in{background:var(--saffron);color:#fff;border-color:var(--saffron);}
+
+  /* OVERLAY */
+  .auth-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:800;pointer-events:none;opacity:0;transition:opacity .25s;}
+  .auth-overlay.open{opacity:1;pointer-events:all;}
+
+  /* AUTH SHEET (login/signup) */
+  .auth-sheet{
+    position:fixed;bottom:0;left:50%;
+    transform:translateX(-50%) translateY(105%);
+    width:100%;max-width:500px;
+    background:#fff;border-radius:22px 22px 0 0;
+    z-index:801;transition:transform .32s cubic-bezier(.4,0,.2,1);
+    max-height:92vh;display:flex;flex-direction:column;
+    box-shadow:0 -8px 40px rgba(0,0,0,0.2);
+  }
+  .auth-sheet.open{transform:translateX(-50%) translateY(0);}
+  .auth-handle{width:40px;height:4px;background:#e0e0e0;border-radius:4px;margin:12px auto 0;flex-shrink:0;}
+  .auth-head{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid #f5f5f5;flex-shrink:0;}
+  .auth-head-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;}
+  .auth-head-close{width:32px;height:32px;border-radius:50%;background:#f5f5f5;border:none;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;}
+  .auth-scroll{overflow-y:auto;flex:1;padding:20px;}
+
+  /* Auth tabs */
+  .auth-tabs{display:flex;background:#f5f5f5;border-radius:12px;padding:4px;margin-bottom:20px;}
+  .auth-tab{
+    flex:1;padding:10px;border-radius:10px;border:none;cursor:pointer;
+    font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:600;
+    background:transparent;color:#888;transition:all .18s;
+  }
+  .auth-tab.active{background:#fff;color:var(--saffron);box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+
+  /* Auth form */
+  .auth-field{margin-bottom:14px;}
+  .auth-field label{display:block;font-size:0.75rem;font-weight:700;color:#1c1c1c;margin-bottom:6px;}
+  .auth-input{
+    width:100%;padding:13px 14px;border:1.5px solid #e8e8e8;border-radius:12px;
+    font-family:'Nunito',sans-serif;font-size:0.88rem;color:#1c1c1c;
+    outline:none;background:#fff;transition:border .18s;
+  }
+  .auth-input:focus{border-color:var(--saffron);box-shadow:0 0 0 3px rgba(255,107,0,0.1);}
+  .auth-input::placeholder{color:#bbb;}
+  .auth-submit-btn{
+    width:100%;padding:15px;background:linear-gradient(135deg,var(--saffron),var(--saffron2));color:#fff;
+    border:none;border-radius:14px;font-family:'Nunito',sans-serif;
+    font-size:0.95rem;font-weight:700;cursor:pointer;margin-top:6px;
+    box-shadow:0 4px 16px rgba(255,107,0,0.3);transition:background .15s;
+  }
+  .auth-submit-btn:active{background:#e55e00;}
+  .auth-divider{text-align:center;font-size:0.75rem;color:#aaa;margin:14px 0;position:relative;}
+  .auth-divider::before,.auth-divider::after{content:'';position:absolute;top:50%;width:40%;height:1px;background:#eee;}
+  .auth-divider::before{left:0;} .auth-divider::after{right:0;}
+  .auth-error{background:#FFF0F0;color:#e53935;border-radius:10px;padding:10px 14px;font-size:0.8rem;margin-bottom:12px;display:none;}
+  .auth-error.show{display:block;}
+
+  /* PROFILE SHEET */
+  .profile-sheet{
+    position:fixed;bottom:0;left:50%;
+    transform:translateX(-50%) translateY(105%);
+    width:100%;max-width:500px;
+    background:#fff;border-radius:22px 22px 0 0;
+    z-index:801;transition:transform .32s cubic-bezier(.4,0,.2,1);
+    max-height:92vh;display:flex;flex-direction:column;
+    box-shadow:0 -8px 40px rgba(0,0,0,0.2);
+  }
+  .profile-sheet.open{transform:translateX(-50%) translateY(0);}
+  .profile-scroll{overflow-y:auto;flex:1;}
+
+  /* Profile header card */
+  .profile-hero{
+    background:linear-gradient(135deg,var(--saffron) 0%,#FF8C00 100%);
+    padding:24px 20px 20px;color:#fff;
+    display:flex;align-items:center;gap:16px;
+  }
+  .profile-avatar{
+    width:64px;height:64px;border-radius:50%;
+    background:rgba(255,255,255,0.3);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.8rem;font-weight:700;border:3px solid rgba(255,255,255,0.5);
+    flex-shrink:0;
+  }
+  .profile-hero-info{}
+  .profile-hero-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:2px;}
+  .profile-hero-phone{font-size:0.8rem;opacity:.85;margin-bottom:4px;}
+  .profile-hero-badge{
+    display:inline-flex;align-items:center;gap:4px;
+    background:rgba(255,255,255,0.25);border-radius:20px;
+    padding:3px 10px;font-size:0.68rem;font-weight:600;
+  }
+
+  /* Profile sections */
+  .profile-section{padding:16px 20px 0;}
+  .profile-section-title{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#888;margin-bottom:10px;}
+  .profile-info-card{background:#f9f6f2;border-radius:14px;padding:14px;margin-bottom:12px;}
+  .profile-info-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f0ece4;}
+  .profile-info-row:last-child{border-bottom:none;padding-bottom:0;}
+  .profile-info-icon{width:36px;height:36px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,0.08);}
+  .profile-info-label{font-size:0.72rem;color:#888;margin-bottom:2px;}
+  .profile-info-val{font-size:0.85rem;font-weight:600;color:#1c1c1c;}
+  .profile-edit-btn{
+    background:var(--saffron-light);border:1.5px solid var(--saffron-mid);
+    color:var(--saffron);border-radius:8px;padding:4px 12px;
+    font-size:0.72rem;font-weight:700;cursor:pointer;
+    font-family:'Nunito',sans-serif;margin-left:auto;flex-shrink:0;
+  }
+
+  /* Order history */
+  .order-card{
+    background:#fff;border:1.5px solid #f0ece4;border-radius:14px;
+    padding:14px;margin-bottom:10px;
+  }
+  .order-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+  .order-card-id{font-size:0.78rem;font-weight:700;color:var(--saffron);}
+  .order-card-date{font-size:0.7rem;color:#888;}
+  .order-card-items{font-size:0.8rem;color:#555;margin-bottom:6px;line-height:1.5;}
+  .order-card-footer{display:flex;align-items:center;justify-content:space-between;}
+  .order-card-total{font-size:0.9rem;font-weight:700;color:#1c1c1c;}
+  .order-card-status{
+    font-size:0.68rem;font-weight:700;padding:3px 10px;border-radius:20px;
+  }
+  .order-card-status.delivered{background:#E8F5E9;color:#2E7D32;}
+  .order-card-status.processing{background:#FFF3E8;color:var(--saffron);}
+
+  /* Logout btn */
+  .logout-btn{
+    width:calc(100% - 40px);margin:16px 20px 30px;
+    padding:14px;background:#FFF0F0;color:#e53935;
+    border:1.5px solid #FFCDD2;border-radius:14px;
+    font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:700;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;
+  }
+
+  /* Edit profile form */
+  .edit-form{display:none;background:#f9f6f2;border-radius:14px;padding:14px;margin-bottom:12px;}
+  .edit-form.show{display:block;}
+  .edit-save-btn{
+    width:100%;padding:12px;background:var(--saffron);color:#fff;
+    border:none;border-radius:12px;font-family:'Nunito',sans-serif;
+    font-size:0.88rem;font-weight:700;cursor:pointer;margin-top:6px;
+  }
+
+  /* ── BOTTOM NAV ── */
+  .bottom-nav{
+    position:fixed;bottom:0;left:0;right:0;
+    background:rgba(255,255,255,0.98);
+    border-top:none;
+    display:flex;max-width:100%;margin:0 auto;
+    box-shadow:0 -1px 0 #EDEBE6, 0 -8px 30px rgba(0,0,0,0.07);
+    padding:0 0 env(safe-area-inset-bottom);
+    height:68px;
+  }
+  .nav-item{
+    flex:1;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;
+    padding:8px 2px 10px;cursor:pointer;gap:4px;
+    font-size:0.68rem;color:var(--muted);font-weight:700;
+    transition:all .2s;text-decoration:none;
+    letter-spacing:0.2px;
+  }
+  .nav-item.active{color:var(--saffron);}
+  .nav-item.active .nav-icon{
+    background:linear-gradient(135deg,var(--saffron-light),#FFE8D0);
+    border-radius:14px;padding:5px 14px;
+    transform:translateY(-2px);
+  }
+  .nav-icon{font-size:1.45rem;transition:all .2s;display:block;}
+
+  /* ══ HERO — FULL SCREEN ══ */
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+  @keyframes waPulse{0%,100%{box-shadow:0 4px 16px rgba(37,211,102,0.5)}50%{box-shadow:0 4px 28px rgba(37,211,102,0.85),0 0 0 8px rgba(37,211,102,0.15)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes shimmerText{0%{background-position:200% center;}100%{background-position:-200% center;}}
+  @keyframes floatDot{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-14px) scale(1.08);}}
+  @keyframes rotateRing{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  @keyframes glow{0%,100%{box-shadow:0 4px 16px rgba(27,138,60,0.4);}50%{box-shadow:0 4px 28px rgba(27,138,60,0.8),0 0 0 6px rgba(27,138,60,0.12);}}
+
+  .hero{
+    min-height:100vh;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(180,30,0,0.7) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(120,10,0,0.5) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(80,0,0,0.6) 0%, transparent 50%),
+      linear-gradient(135deg, #1a0500 0%, #3d0a00 25%, #6b1500 50%, #8B2500 70%, #1a0500 100%);
+    position:relative;overflow:hidden;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:0;
+  }
+  /* Classic Indian pattern overlay */
+  .hero::before{
+    content:'';
+    position:absolute;inset:0;
+    background-image:
+      radial-gradient(circle at 15% 25%, rgba(255,180,0,0.08) 0%, transparent 35%),
+      radial-gradient(circle at 85% 75%, rgba(255,120,0,0.1) 0%, transparent 35%),
+      radial-gradient(circle at 50% 50%, rgba(255,200,0,0.04) 0%, transparent 60%);
+    pointer-events:none;z-index:0;
+  }
+  .hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+  .hero-ring{position:absolute;border-radius:50%;border:1.5px solid rgba(255,255,255,0.1);}
+  .hero-ring:nth-child(1){width:500px;height:500px;top:-150px;right:-150px;animation:rotateRing 30s linear infinite;}
+  .hero-ring:nth-child(2){width:350px;height:350px;bottom:-100px;left:-80px;animation:rotateRing 20s linear infinite reverse;}
+  .hero-ring:nth-child(3){width:200px;height:200px;top:30%;right:10%;animation:rotateRing 15s linear infinite;opacity:.6;}
+  .hero-dot{position:absolute;border-radius:50%;background:rgba(255,255,255,0.12);animation:floatDot 4s ease-in-out infinite;}
+  .hero-dot:nth-child(4){width:80px;height:80px;top:15%;left:8%;animation-delay:0s;}
+  .hero-dot:nth-child(5){width:50px;height:50px;top:60%;right:6%;animation-delay:1.5s;}
+  .hero-dot:nth-child(6){width:30px;height:30px;top:35%;left:40%;animation-delay:.8s;}
+
+  .hero-top{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:28px 28px 0;position:relative;z-index:5;
+    animation:fadeUp .5s ease both;
+  }
+  .badge-open{
+    background:linear-gradient(135deg,#1a7a3a,#27AE60);
+    color:#fff;font-size:0.75rem;font-weight:800;
+    padding:8px 18px;border-radius:30px;letter-spacing:.6px;
+    display:flex;align-items:center;gap:7px;
+    box-shadow:0 4px 18px rgba(27,138,60,0.55);
+    animation:glow 2.5s ease infinite;
+  }
+  .badge-dot{width:8px;height:8px;background:#7FFF7F;border-radius:50%;animation:blink 1.4s infinite;}
+  .hero-rating{
+    background:rgba(255,255,255,0.18);backdrop-filter:blur(14px);
+    border:1.5px solid rgba(255,255,255,0.3);
+    border-radius:30px;padding:8px 18px;
+    font-size:0.84rem;font-weight:800;color:#fff;
+    display:flex;align-items:center;gap:6px;
+  }
+  .hero-center{
+    flex:1;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    text-align:center;padding:40px 28px 20px;
+    position:relative;z-index:5;
+  }
+  .hero-eyebrow{
+    font-size:0.78rem;font-weight:700;letter-spacing:2.5px;
+    text-transform:uppercase;color:rgba(255,255,255,0.8);
+    margin-bottom:14px;
+    animation:fadeUp .5s .1s ease both;opacity:0;animation-fill-mode:forwards;
+  }
+  .hero-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:4.5rem;font-weight:700;
+    line-height:1.0;color:#fff;
+    text-shadow:0 4px 30px rgba(0,0,0,0.2);
+    margin-bottom:4px;
+    animation:fadeUp .6s .15s ease both;opacity:0;animation-fill-mode:forwards;
+  }
+  .hero-title-amp{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    background:linear-gradient(90deg,#FFF176,#FFD700,#FFEC8B,#FFD700,#FFF176);
+    background-size:300% auto;
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    animation:shimmerText 3s linear infinite;
+    display:block;font-size:5rem;line-height:1.0;
+  }
+  .hero-sub{
+    font-size:1.05rem;font-weight:400;
+    color:rgba(255,255,255,0.88);margin-bottom:8px;
+    animation:fadeUp .6s .25s ease both;opacity:0;animation-fill-mode:forwards;
+  }
+  .hero-owner{
+    font-size:0.78rem;color:rgba(255,255,255,0.65);
+    margin-bottom:28px;font-weight:500;
+    animation:fadeUp .5s .3s ease both;opacity:0;animation-fill-mode:forwards;
+  }
+  .hero-cta{
+    display:flex;gap:12px;flex-wrap:wrap;justify-content:center;
+    margin-bottom:36px;
+    animation:fadeUp .6s .35s ease both;opacity:0;animation-fill-mode:forwards;
+  }
+  .cta-primary{
+    display:flex;align-items:center;gap:8px;
+    background:#fff;color:var(--saffron);
+    padding:14px 30px;border-radius:50px;
+    font-family:'Outfit',sans-serif;font-size:0.92rem;font-weight:800;
+    text-decoration:none;cursor:pointer;border:none;
+    box-shadow:0 8px 30px rgba(0,0,0,0.2);transition:all .22s;
+  }
+  .cta-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,0.3);}
+  .cta-secondary{
+    display:flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,0.18);
+    border:2px solid rgba(255,255,255,0.45);color:#fff;
+    padding:14px 28px;border-radius:50px;
+    font-family:'Outfit',sans-serif;font-size:0.92rem;font-weight:700;
+    text-decoration:none;cursor:pointer;backdrop-filter:blur(10px);transition:all .22s;
+  }
+  .cta-secondary:hover{background:rgba(255,255,255,0.28);transform:translateY(-3px);}
+  .hero-chips{
+    display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+    animation:fadeUp .5s .42s ease both;opacity:0;animation-fill-mode:forwards;
+  }
+  .info-chip{
+    display:flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);
+    border:1.5px solid rgba(255,255,255,0.25);
+    border-radius:30px;padding:8px 16px;
+    font-size:0.75rem;color:#fff;font-weight:700;transition:all .2s;
+  }
+  .info-chip:hover{background:rgba(255,255,255,0.28);transform:translateY(-2px);}
+  .hero-scroll{
+    padding:20px 0 30px;
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    position:relative;z-index:5;
+  }
+  .scroll-text{font-size:0.68rem;color:rgba(255,255,255,0.6);letter-spacing:1.5px;text-transform:uppercase;}
+  .scroll-arrow{
+    width:28px;height:28px;border-radius:50%;
+    border:2px solid rgba(255,255,255,0.4);
+    display:flex;align-items:center;justify-content:center;
+    font-size:0.8rem;color:rgba(255,255,255,0.7);
+    animation:floatDot 1.8s ease-in-out infinite;
+  }
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  50%{transform:translateY(-10px)};
+  @media(min-width:900px){
+    
+    
+  }
+
+  /* ══ HERO BANNER ══ */
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+  @keyframes waPulse{0%,100%{box-shadow:0 4px 16px rgba(37,211,102,0.5)}50%{box-shadow:0 4px 28px rgba(37,211,102,0.85),0 0 0 8px rgba(37,211,102,0.15)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
+  @keyframes glowBadge{0%,100%{box-shadow:0 4px 16px rgba(27,138,60,0.45);}50%{box-shadow:0 4px 28px rgba(27,138,60,0.8),0 0 0 6px rgba(27,138,60,0.12);}}
+
+  .hero-banner{
+    position:relative;width:100%;
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;flex-direction:column;justify-content:flex-end;
+  }
+  /* Real food photo background via Unsplash */
+  .hero-banner::before{
+    content:'';
+    position:absolute;inset:0;
+    background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80');
+    background-size:cover;
+    background-position:center 40%;
+    transform:scale(1.05);
+    animation:heroZoom 12s ease-in-out infinite alternate;
+    z-index:0;
+  }
+  @keyframes heroZoom{
+    from{transform:scale(1.05);}
+    to{transform:scale(1.12);}
+  }
+  /* Multi-layer cinematic overlay */
+  .hero-banner::after{
+    content:'';
+    position:absolute;inset:0;z-index:1;
+    background:
+      linear-gradient(to top,
+        rgba(5,2,0,0.97) 0%,
+        rgba(10,4,0,0.85) 30%,
+        rgba(20,8,0,0.55) 55%,
+        rgba(0,0,0,0.2) 80%,
+        rgba(0,0,0,0.1) 100%
+      ),
+      linear-gradient(to right,
+        rgba(0,0,0,0.4) 0%,
+        transparent 60%
+      );
+  }
+  .hero-bg-img{display:none!important;}
+  .hero-overlay{display:none;}
+  .rating-cover{display:none!important;}
+
+  /* Floating particles */
+  .hero-particles{
+    position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden;
+  }
+  .hero-particles span{
+    position:absolute;
+    width:3px;height:3px;
+    background:rgba(255,200,80,0.6);
+    border-radius:50%;
+    animation:particle 8s ease-in-out infinite;
+  }
+  .hero-particles span:nth-child(1){left:10%;top:70%;animation-delay:0s;animation-duration:9s;}
+  .hero-particles span:nth-child(2){left:25%;top:80%;animation-delay:2s;animation-duration:7s;}
+  .hero-particles span:nth-child(3){left:50%;top:75%;animation-delay:1s;animation-duration:11s;}
+  .hero-particles span:nth-child(4){left:70%;top:65%;animation-delay:3s;animation-duration:8s;}
+  .hero-particles span:nth-child(5){left:85%;top:85%;animation-delay:1.5s;animation-duration:10s;}
+  .hero-particles span:nth-child(6){left:38%;top:90%;animation-delay:4s;animation-duration:6s;}
+  @keyframes particle{
+    0%{transform:translateY(0) scale(1);opacity:0;}
+    20%{opacity:1;}
+    100%{transform:translateY(-300px) scale(0);opacity:0;}
+  }
+
+  /* Content sits on top */
+  .hero-content{
+    position:relative;z-index:5;
+    padding:0 22px 44px;
+    max-width:100%;
+  }
+
+  /* Gold top accent bar */
+  .hero-top-bar{
+    position:absolute;top:0;left:0;right:0;z-index:5;
+    height:3px;
+    background:linear-gradient(90deg,
+      transparent 0%,
+      #B8860B 15%,
+      #FFD700 35%,
+      #FFF8DC 50%,
+      #FFD700 65%,
+      #B8860B 85%,
+      transparent 100%
+    );
+    box-shadow:0 0 20px rgba(255,215,0,0.5);
+  }
+
+  .badge-open{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(27,100,50,0.9);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(80,220,120,0.4);
+    color:#7FFF7F;font-size:0.7rem;font-weight:800;
+    padding:6px 14px;border-radius:30px;letter-spacing:1px;
+    margin-bottom:18px;
+    font-family:'Outfit',sans-serif;
+    animation:glowBadge 2.5s ease infinite;
+    text-transform:uppercase;
+  }
+  .badge-dot{width:6px;height:6px;background:#7FFF7F;border-radius:50%;animation:blink 1.4s infinite;}
+
+  /* LOGO area */
+  .hero-logo-wrap{
+    margin-bottom:16px;
+    animation:fadeUp .6s ease both;
+  }
+
+  .hero-name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:3.6rem;font-weight:700;
+    color:#fff;
+    line-height:0.95;
+    letter-spacing:-1px;
+    margin-bottom:0;
+    text-shadow:0 4px 30px rgba(0,0,0,0.8);
+    animation:fadeUp .5s .1s ease both;opacity:0;animation-fill-mode:forwards;
+  }
+  .hero-name-amp{
+    font-style:italic;
+    background:linear-gradient(90deg,#FFF0A0,#FFD700,#FFC200,#FFD700,#FFF0A0);
+    background-size:300% auto;
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    animation:shimmer 4s linear infinite;
+    display:block;font-size:2.8rem;
+  }
+
+  /* Gold ornamental divider */
+  .hero-divider{
+    display:flex;align-items:center;gap:10px;
+    margin:12px 0 14px;
+    animation:fadeUp .5s .2s ease both;opacity:0;animation-fill-mode:forwards;
+  }
+  .hero-divider-line{
+    flex:1;max-width:60px;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(255,215,0,0.8));
+  }
+  .hero-divider-line.right{
+    background:linear-gradient(90deg,rgba(255,215,0,0.8),transparent);
+  }
+  .hero-divider-icon{
+    font-size:14px;color:#FFD700;letter-spacing:4px;
+  }
+
+  .hero-tag{
+    font-size:0.82rem;color:rgba(255,240,200,0.9);font-weight:400;
+    margin-bottom:16px;
+    letter-spacing:0.5px;
+    font-family:'Outfit',sans-serif;
+    font-style:italic;
+    animation:fadeUp .5s .25s ease both;opacity:0;animation-fill-mode:forwards;
+  }
+  .hero-owner-txt{display:none;}
+  .hero-chips-row{
+    display:flex;gap:8px;flex-wrap:wrap;
+    animation:fadeUp .5s .3s ease both;opacity:0;animation-fill-mode:forwards;
+    margin-bottom:22px;
+  }
+  .hchip{
+    display:flex;align-items:center;gap:5px;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,215,0,0.25);
+    border-radius:6px;padding:6px 12px;
+    font-size:0.68rem;color:rgba(255,240,200,0.9);font-weight:600;
+    font-family:'Outfit',sans-serif;
+    white-space:nowrap;
+    letter-spacing:0.3px;
+  }
+
+  /* CTA buttons */
+  .hero-cta-row{
+    display:flex;gap:10px;flex-wrap:wrap;
+    animation:fadeUp .5s .4s ease both;opacity:0;animation-fill-mode:forwards;
+  }
+  .hero-cta-main{
+    display:inline-flex;align-items:center;gap:8px;
+    background:linear-gradient(135deg,#D4870A,#FFD700,#E8A020);
+    background-size:200% auto;
+    color:#1a0800;font-weight:800;font-size:0.82rem;
+    padding:12px 24px;border-radius:8px;
+    border:none;cursor:pointer;
+    font-family:'Outfit',sans-serif;
+    letter-spacing:0.5px;text-transform:uppercase;
+    text-decoration:none;
+    box-shadow:0 6px 24px rgba(255,180,0,0.35);
+    transition:all .25s;
+    animation:shimmer 3s linear infinite;
+  }
+  .hero-cta-main:hover{box-shadow:0 8px 32px rgba(255,180,0,0.55);transform:translateY(-2px);}
+  .hero-cta-secondary{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    color:#fff;font-weight:700;font-size:0.82rem;
+    padding:12px 20px;border-radius:8px;
+    border:1px solid rgba(255,255,255,0.25);
+    cursor:pointer;font-family:'Outfit',sans-serif;
+    letter-spacing:0.5px;text-transform:uppercase;
+    text-decoration:none;
+    transition:all .25s;
+  }
+  .hero-cta-secondary:hover{background:rgba(255,255,255,0.15);border-color:rgba(255,215,0,0.5);}
+
+  /* Stats row */
+  .hero-stats{
+    display:flex;gap:0;
+    margin-top:28px;
+    border-top:1px solid rgba(255,215,0,0.15);
+    padding-top:20px;
+    animation:fadeUp .5s .5s ease both;opacity:0;animation-fill-mode:forwards;
+  }
+  .hero-stat{
+    flex:1;text-align:center;
+    border-right:1px solid rgba(255,255,255,0.1);
+  }
+  .hero-stat:last-child{border-right:none;}
+  .hero-stat-num{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.8rem;font-weight:700;
+    background:linear-gradient(135deg,#FFD700,#FFA500);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    line-height:1;margin-bottom:3px;
+  }
+  .hero-stat-label{
+    font-size:0.6rem;color:rgba(255,255,255,0.5);
+    font-family:'Outfit',sans-serif;letter-spacing:1.5px;text-transform:uppercase;
+  }
+
+  /* Desktop hero */
+  @media(min-width:900px){
+    .hero-banner{min-height:100vh;}
+    .hero-content{padding:0 80px 60px;max-width:60%;}
+    .hero-name{font-size:5.5rem;}
+    .hero-name-amp{font-size:4.5rem;}
+    .hchip{font-size:0.78rem;padding:7px 16px;}
+    .hero-cta-main,.hero-cta-secondary{font-size:0.88rem;padding:14px 28px;}
+  }
+
+  /* Remove old hero styles */
+  .hero{display:none!important;}
+  .hero-center{display:none!important;}
+  .hero-top{display:none!important;}
+  .hero-scroll{display:none!important;}
+  .hero-cta{display:none!important;}
+
+
+  /* ══ ADMIN PANEL ══ */
+  .admin-fab{
+    position:fixed;bottom:160px;right:16px;z-index:300;
+    width:48px;height:48px;border-radius:50%;
+    background:linear-gradient(135deg,#1c1c2e,#2d2d44);
+    border:2px solid #FF6B00;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.2rem;cursor:pointer;
+    box-shadow:0 4px 18px rgba(0,0,0,0.35);
+    color:#fff;transition:transform .2s;
+  }
+  .admin-fab:hover{transform:scale(1.1);}
+
+  /* Admin overlay */
+  .admin-overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,0.65);
+    z-index:900;opacity:0;pointer-events:none;transition:opacity .25s;
+  }
+  .admin-overlay.open{opacity:1;pointer-events:all;}
+
+  /* Admin sheet */
+  .admin-sheet{
+    position:fixed;inset:0;z-index:901;
+    background:#F7F4F0;
+    transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);
+    display:flex;flex-direction:column;overflow:hidden;
+  }
+  .admin-sheet.open{transform:translateX(0);}
+
+  /* Admin header */
+  .admin-header{
+    background:linear-gradient(135deg,#1c1c2e,#2d2d44);
+    padding:16px 20px;
+    display:flex;align-items:center;justify-content:space-between;
+    flex-shrink:0;
+  }
+  .admin-header-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.2rem;font-weight:700;color:#fff;
+    display:flex;align-items:center;gap:8px;
+  }
+  .admin-header-close{
+    width:34px;height:34px;border-radius:50%;
+    background:rgba(255,255,255,0.12);border:none;
+    color:#fff;font-size:1rem;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  /* Admin tabs */
+  .admin-tabs{
+    display:flex;background:#fff;border-bottom:2px solid #F0EBE0;
+    flex-shrink:0;
+  }
+  .admin-tab{
+    flex:1;padding:12px 8px;text-align:center;
+    font-size:0.78rem;font-weight:700;color:#888;
+    cursor:pointer;border-bottom:3px solid transparent;
+    transition:all .18s;font-family:'Outfit',sans-serif;
+  }
+  .admin-tab.active{color:var(--saffron);border-bottom-color:var(--saffron);}
+
+  /* Admin scroll */
+  .admin-scroll{overflow-y:auto;flex:1;padding:16px;}
+
+  /* Stats cards */
+  .admin-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px;}
+  .stat-card{
+    background:#fff;border-radius:16px;padding:16px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    border-left:4px solid var(--saffron);
+  }
+  .stat-card.green{border-left-color:#1B8A3C;}
+  .stat-card.blue{border-left-color:#2196F3;}
+  .stat-card.red{border-left-color:#E53935;}
+  .stat-val{font-size:1.6rem;font-weight:900;color:#1c1c1c;font-family:'Outfit',sans-serif;}
+  .stat-label{font-size:0.7rem;color:#888;font-weight:600;margin-top:2px;}
+
+  /* Dish list */
+  .admin-dish-item{
+    background:#fff;border-radius:14px;padding:12px;
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:8px;box-shadow:0 2px 8px rgba(0,0,0,0.05);
+    border:1.5px solid #F0EBE0;
+  }
+  .admin-dish-img{
+    width:54px;height:54px;border-radius:50%;
+    object-fit:cover;flex-shrink:0;
+    border:2px solid #FFE0C0;
+  }
+  .admin-dish-img-placeholder{
+    width:54px;height:54px;border-radius:50%;
+    background:linear-gradient(135deg,#FFF3E8,#FFE0C0);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.4rem;flex-shrink:0;
+    border:2px solid #FFE0C0;
+  }
+  .admin-dish-info{flex:1;min-width:0;}
+  .admin-dish-name{font-size:0.85rem;font-weight:700;color:#1c1c1c;margin-bottom:2px;}
+  .admin-dish-meta{font-size:0.72rem;color:#888;display:flex;gap:8px;align-items:center;}
+  .admin-dish-price{color:var(--saffron);font-weight:800;}
+  .admin-type-dot{
+    width:8px;height:8px;border-radius:50%;flex-shrink:0;
+    display:inline-block;
+  }
+  .admin-dish-actions{display:flex;gap:6px;flex-shrink:0;}
+  .admin-action-btn{
+    width:32px;height:32px;border-radius:10px;border:none;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    font-size:0.85rem;transition:all .15s;
+  }
+  .admin-edit-btn{background:#FFF3E8;color:var(--saffron);}
+  .admin-edit-btn:hover{background:var(--saffron);color:#fff;}
+  .admin-del-btn{background:#FFEBEE;color:#E53935;}
+  .admin-del-btn:hover{background:#E53935;color:#fff;}
+  .admin-toggle-btn{background:#E8F5E9;color:#1B8A3C;font-size:0.65rem;width:auto;padding:0 8px;}
+  .admin-toggle-btn.inactive{background:#FAFAFA;color:#888;}
+
+  /* Add / Edit form */
+  .admin-form{background:#fff;border-radius:16px;padding:16px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,0.06);}
+  .admin-form-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.05rem;font-weight:700;color:#1c1c1c;
+    margin-bottom:14px;display:flex;align-items:center;gap:6px;
+  }
+  .admin-field{margin-bottom:12px;}
+  .admin-field label{display:block;font-size:0.72rem;font-weight:800;color:#555;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;}
+  .admin-input{
+    width:100%;padding:11px 14px;
+    border:1.5px solid #E8E8E8;border-radius:12px;
+    font-family:'Outfit',sans-serif;font-size:0.88rem;
+    color:#1c1c1c;outline:none;background:#fff;
+    transition:border .18s;
+  }
+  .admin-input:focus{border-color:var(--saffron);box-shadow:0 0 0 3px rgba(249,87,0,0.08);}
+  .admin-input::placeholder{color:#bbb;}
+  select.admin-input{cursor:pointer;}
+
+  /* Image upload */
+  .img-upload-wrap{
+    border:2px dashed #E8E8E8;border-radius:14px;
+    padding:16px;text-align:center;cursor:pointer;
+    transition:all .2s;background:#FAFAFA;
+  }
+  .img-upload-wrap:hover{border-color:var(--saffron);background:var(--saffron-light);}
+  .img-upload-wrap.has-img{border-style:solid;border-color:var(--saffron);}
+  .img-preview{
+    width:80px;height:80px;border-radius:50%;
+    object-fit:cover;margin:0 auto 8px;display:block;
+    border:3px solid var(--saffron-mid);
+  }
+  .img-upload-icon{font-size:2rem;margin-bottom:6px;display:block;}
+  .img-upload-text{font-size:0.76rem;color:#888;font-weight:600;}
+  .img-upload-text span{color:var(--saffron);}
+
+  /* Row fields */
+  .admin-field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+
+  /* Submit btn */
+  .admin-submit{
+    width:100%;padding:14px;
+    background:linear-gradient(135deg,var(--saffron),var(--saffron2));
+    color:#fff;border:none;border-radius:14px;
+    font-family:'Outfit',sans-serif;font-size:0.92rem;font-weight:800;
+    cursor:pointer;box-shadow:0 4px 16px rgba(249,87,0,0.3);
+    transition:all .18s;
+  }
+  .admin-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,87,0,0.4);}
+  .admin-cancel{
+    width:100%;padding:12px;background:#F5F5F5;
+    color:#555;border:none;border-radius:14px;
+    font-family:'Outfit',sans-serif;font-size:0.88rem;font-weight:700;
+    cursor:pointer;margin-top:8px;
+  }
+
+  /* Login */
+  .admin-login-wrap{
+    display:flex;flex-direction:column;align-items:center;
+    justify-content:center;height:100%;padding:40px 24px;
+  }
+  .admin-login-icon{font-size:3.5rem;margin-bottom:16px;}
+  .admin-login-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.6rem;font-weight:700;color:#1c1c1c;
+    margin-bottom:6px;
+  }
+  .admin-login-sub{font-size:0.82rem;color:#888;margin-bottom:28px;text-align:center;}
+  .admin-login-form{width:100%;max-width:340px;}
+  .admin-login-error{
+    background:#FFEBEE;color:#E53935;border-radius:10px;
+    padding:10px 14px;font-size:0.8rem;margin-bottom:12px;display:none;
+  }
+  .admin-login-error.show{display:block;}
+
+  /* Search */
+  .admin-search{
+    width:100%;padding:10px 16px 10px 40px;
+    border:1.5px solid #E8E8E8;border-radius:30px;
+    font-family:'Outfit',sans-serif;font-size:0.85rem;
+    outline:none;background:#fff;margin-bottom:12px;
+  }
+  .admin-search-wrap{position:relative;}
+  .admin-search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:#aaa;}
+
+  /* Filter pills */
+  .admin-filter-row{display:flex;gap:6px;overflow-x:auto;margin-bottom:12px;scrollbar-width:none;padding-bottom:3px;}
+  .admin-filter-row::-webkit-scrollbar{display:none;}
+  .admin-filter-pill{
+    flex-shrink:0;padding:5px 13px;border-radius:20px;
+    border:1.5px solid #E8E8E8;background:#fff;
+    font-size:0.72rem;font-weight:700;color:#666;cursor:pointer;
+  }
+  .admin-filter-pill.active{background:var(--saffron);border-color:var(--saffron);color:#fff;}
+
+  /* Toast */
+  #adminToast{
+    position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+    background:#1c1c1c;color:#fff;padding:10px 22px;border-radius:30px;
+    font-size:0.82rem;font-weight:600;z-index:9999;
+    opacity:0;transition:opacity .25s;white-space:nowrap;
+    box-shadow:0 4px 16px rgba(0,0,0,0.25);pointer-events:none;
+  }
+  #adminToast.show{opacity:1;}
+
+  /* Category badge */
+  .cat-badge{
+    font-size:0.62rem;font-weight:700;padding:2px 8px;border-radius:20px;
+    background:var(--saffron-light);color:var(--saffron);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero-banner">
+  <div class="hero-top-bar"></div>
+  <!-- Floating particles -->
+  <div class="hero-particles">
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+  </div>
+  <!-- Content -->
+  <div class="hero-content">
+    <div class="badge-open"><span class="badge-dot"></span> OPEN NOW</div>
+
+    <!-- Premium Logo -->
+    <div class="hero-logo-wrap">
+      <svg width="80" height="80" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 8px 24px rgba(255,180,0,0.35));">
+        <defs>
+          <linearGradient id="lG" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFF5A0"/><stop offset="40%" style="stop-color:#FFD700"/>
+            <stop offset="70%" style="stop-color:#E8A020"/><stop offset="100%" style="stop-color:#FFD700"/>
+          </linearGradient>
+          <radialGradient id="lBg" cx="50%" cy="35%" r="60%">
+            <stop offset="0%" style="stop-color:#2a0800"/><stop offset="100%" style="stop-color:#0d0200"/>
+          </radialGradient>
+        </defs>
+        <circle cx="60" cy="60" r="58" fill="url(#lBg)" stroke="url(#lG)" stroke-width="2"/>
+        <circle cx="60" cy="60" r="50" fill="none" stroke="url(#lG)" stroke-width="0.6" opacity="0.4"/>
+        <!-- Ornament dots -->
+        <circle cx="60" cy="4" r="2.5" fill="url(#lG)"/><circle cx="60" cy="116" r="2.5" fill="url(#lG)"/>
+        <circle cx="4" cy="60" r="2.5" fill="url(#lG)"/><circle cx="116" cy="60" r="2.5" fill="url(#lG)"/>
+        <!-- Thali -->
+        <circle cx="60" cy="58" r="24" fill="none" stroke="url(#lG)" stroke-width="2.2"/>
+        <circle cx="60" cy="58" r="17" fill="none" stroke="url(#lG)" stroke-width="1" opacity="0.5"/>
+        <!-- Spoon -->
+        <ellipse cx="34" cy="36" rx="4" ry="5" fill="none" stroke="url(#lG)" stroke-width="1.8"/>
+        <line x1="34" y1="41" x2="36" y2="76" stroke="url(#lG)" stroke-width="2" stroke-linecap="round"/>
+        <!-- Fork -->
+        <line x1="86" y1="76" x2="84" y2="41" stroke="url(#lG)" stroke-width="2" stroke-linecap="round"/>
+        <line x1="81" y1="41" x2="81" y2="32" stroke="url(#lG)" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="84" y1="41" x2="84" y2="32" stroke="url(#lG)" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="87" y1="41" x2="87" y2="32" stroke="url(#lG)" stroke-width="1.6" stroke-linecap="round"/>
+        <!-- P -->
+        <text x="60" y="65" font-family="Georgia,serif" font-size="22" font-weight="700" fill="url(#lG)" text-anchor="middle" dominant-baseline="middle">P</text>
+        <!-- Stars -->
+        <text x="60" y="22" font-size="8" fill="url(#lG)" text-anchor="middle" letter-spacing="4">★ ★ ★</text>
+        <!-- Since badge -->
+        <rect x="30" y="90" width="60" height="14" rx="3" fill="rgba(255,200,0,0.1)" stroke="url(#lG)" stroke-width="0.8"/>
+        <text x="60" y="99" font-family="Georgia,serif" font-size="6" fill="url(#lG)" text-anchor="middle" letter-spacing="2.5">SINCE 2024</text>
+      </svg>
+    </div>
+
+    <div class="hero-name">Patil<br><span class="hero-name-amp">&amp; Sons</span></div>
+
+    <div class="hero-divider">
+      <div class="hero-divider-line"></div>
+      <div class="hero-divider-icon">✦ &nbsp; ✦ &nbsp; ✦</div>
+      <div class="hero-divider-line right"></div>
+    </div>
+
+    <div class="hero-tag">"Where Every Meal Feels Like Home" &nbsp;—&nbsp; Wagholi, Pune</div>
+
+    <div class="hero-chips-row">
+      <div class="hchip">📍 Wagholi, Pune</div>
+      <div class="hchip">🕐 7 AM – 11 PM</div>
+      <div class="hchip">🥗 Veg + Non-Veg</div>
+      <div class="hchip">☕ Breakfast · Lunch · Dinner</div>
+    </div>
+
+    <div class="hero-cta-row">
+      <a href="#menu" class="hero-cta-main">🍽 View Menu</a>
+      <a href="https://wa.me/917499225827" target="_blank" class="hero-cta-secondary">💬 Order on WhatsApp</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">500+</div><div class="hero-stat-label">Happy Customers</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">4.8★</div><div class="hero-stat-label">Rating</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">30+</div><div class="hero-stat-label">Dishes</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">Fast</div><div class="hero-stat-label">Delivery</div></div>
+    </div>
+  </div>
+</div>
+<!-- ONLINE ORDER BANNER -->
+<div style="
+  background:linear-gradient(90deg,#075E54,#128C7E,#25D366);
+  padding:12px 18px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:10px;position:relative;overflow:hidden;
+">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(255,255,255,0.08),transparent);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:10px;color:#fff;z-index:1;">
+    <div style="width:36px;height:36px;background:rgba(255,255,255,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">🟢</div>
+    <div>
+      <div style="font-size:0.82rem;font-weight:800;letter-spacing:.3px;">Online Ordering Available!</div>
+      <div style="font-size:0.66rem;opacity:.85;margin-top:1px;">Order now & get it delivered to your door 🛵</div>
+    </div>
+  </div>
+  <a href="https://wa.me/917499225827?text=Hello%20Patil%20%26%20Sons!%20I%20want%20to%20place%20an%20order%20%F0%9F%8D%BD%EF%B8%8F"
+     target="_blank"
+     style="
+       background:#fff;color:#075E54;border-radius:30px;padding:8px 16px;
+       font-size:0.76rem;font-weight:800;text-decoration:none;
+       display:flex;align-items:center;gap:6px;white-space:nowrap;
+       box-shadow:0 3px 12px rgba(0,0,0,0.2);z-index:1;flex-shrink:0;
+     ">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Order on WhatsApp
+  </a>
+</div>
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <svg width="32" height="32" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+      <defs><linearGradient id="navGold" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFD700"/><stop offset="100%" style="stop-color:#FF6B00"/></linearGradient></defs>
+      <circle cx="36" cy="36" r="34" fill="#1B1B1B" stroke="url(#navGold)" stroke-width="2.5"/>
+      <circle cx="36" cy="32" r="13" fill="none" stroke="url(#navGold)" stroke-width="2"/>
+      <text x="36" y="36" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="url(#navGold)" text-anchor="middle" dominant-baseline="middle">P</text>
+    </svg>
+    <div class="sticky-name">Patil &amp; Sons 🍛</div>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center;">
+    <div class="search-btn" onclick="toggleSearch()" id="srchBtn">🔍</div>
+    <button class="cart-btn" onclick="openCart()" id="cartBtnHeader">🛒<span class="cart-badge" id="cartBadge">0</span></button>
+    <button class="desktop-cart-btn" onclick="openCart()" style="display:none;" id="desktopCartBtn">🛒 Cart (<span id="desktopCartCount">0</span> items)</button>
+    <button class="profile-btn" id="profileTopBtn" onclick="openProfileOrAuth()">👤</button>
+  </div>
+  <div class="search-expand" id="srchBox">
+    <input type="text" id="searchInput" placeholder="Search biryani, chai, dosa..." oninput="renderGrid()">
+  </div>
+</div>
+
+<div class="desktop-grid">
+  <!-- LEFT SIDEBAR (desktop only) -->
+  <div class="desktop-sidebar" id="desktopSidebar">
+    <div class="sidebar-title">🍽️ Categories</div>
+    <div id="sidebarCats"></div>
+  </div>
+
+  <!-- RIGHT MAIN CONTENT -->
+  <div class="desktop-main">
+
+<!-- CATEGORY TABS -->
+<div class="cat-section">
+  <div class="cat-heading">Browse by Category</div>
+  <div class="cat-tabs" id="catTabs">
+    <div class="cat-tab active" data-cat="all">🍽️ All Items</div>
+    <div class="cat-tab" data-cat="maharashtrian">🌾 Maharashtrian</div>
+    <div class="cat-tab" data-cat="north">🍲 North Indian</div>
+    <div class="cat-tab" data-cat="snacks">🥙 Snacks & Starters</div>
+    <div class="cat-tab" data-cat="rice">🍛 Rice & Biryani</div>
+    <div class="cat-tab" data-cat="beverages">☕ Beverages</div>
+    <div class="cat-tab" data-cat="desserts">🍮 Sweets & Desserts</div>
+    <div class="cat-tab" data-cat="chicken">🍗 Chicken</div>
+    <div class="cat-tab" data-cat="mutton">🥩 Mutton</div>
+    <div class="cat-tab" data-cat="egg">🥚 Egg Dishes</div>
+  </div>
+</div>
+
+<!-- VEG / NON-VEG TOGGLE -->
+<div class="veg-toggle">
+  <button class="veg-btn veg" id="vegBtn">
+    <span class="dot"></span> Pure Veg
+  </button>
+  <button class="veg-btn nonveg" id="nonvegBtn">
+    <span class="dot"></span> Non-Veg
+  </button>
+</div>
+
+<div id="favourites-section"></div>
+<!-- LIKED -->
+<div class="liked-section">
+  <div class="section-header" style="margin-bottom:8px;">
+    <div class="section-title" style="font-size:.9rem;">❤️ Your Favourites</div>
+  </div>
+  <div class="liked-strip" id="likedStrip">
+    <div class="liked-empty" id="likedEmpty">Tap ♡ on any dish to save here!</div>
+  </div>
+</div>
+
+<div id="menu-section"></div>
+<!-- FOOD GRID -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title" id="gridTitle">Our Specialities</div>
+    <div class="section-count" id="gridCount"></div>
+  </div>
+  <div class="food-grid" id="foodGrid"></div>
+</div>
+
+
+  </div><!-- end desktop-main -->
+</div><!-- end desktop-grid -->
+
+<!-- CONTACT -->
+<div class="contact-section">
+  <div class="contact-title">🏠 Visit Us</div>
+  <div class="contact-row">
+    <div class="contact-icon">📍</div>
+    <div>Patil and Sons Restaurant,<br><strong>Wagholi, Pune, Maharashtra</strong></div>
+  </div>
+  <div class="contact-row">
+    <div class="contact-icon">📞</div>
+    <div><div style="font-size:0.75rem;opacity:0.85;margin-bottom:2px;">Amar Sarode (Owner)</div><a href="tel:+917499225827">+91 74992 25827</a></div>
+  </div>
+  <div class="contact-row">
+    <div class="contact-icon">📧</div>
+    <div><div style="font-size:0.75rem;opacity:0.85;margin-bottom:2px;">Email Us</div><a href="mailto:amarsarode43@gmail.com">amarsarode43@gmail.com</a></div>
+  </div>
+  <div class="contact-row">
+    <div class="contact-icon">🕐</div>
+    <div>Timing: <strong>7:00 AM – 11:00 PM</strong></div>
+  </div>
+  <div class="hours-grid">
+    <div class="hour-chip"><div class="day">🌅 Breakfast</div><div class="time">7 AM – 11 AM</div></div>
+    <div class="hour-chip"><div class="day">☀️ Lunch</div><div class="time">12 PM – 3 PM</div></div>
+    <div class="hour-chip"><div class="day">🌆 Evening</div><div class="time">4 PM – 7 PM</div></div>
+    <div class="hour-chip"><div class="day">🌙 Dinner</div><div class="time">7 PM – 11 PM</div></div>
+  </div>
+</div>
+
+
+
+<!-- CART OVERLAY + DRAWER -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-handle"></div>
+  <div class="cart-head">
+    <div class="cart-head-title">🛒 Your Cart</div>
+    <button class="cart-head-close" id="cartCloseBtn">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty-box">
+      <span class="cart-empty-icon">🛒</span>
+      <div class="cart-empty-title">Your Cart is Empty!</div>
+      <div class="cart-empty-sub">Add some tasty dishes 😋</div>
+    </div>
+  </div>
+  <div class="cart-foot" id="cartFoot" style="display:none;"></div>
+</div>
+
+<!-- CHECKOUT SHEET -->
+<div class="checkout-overlay" id="checkoutOverlay"></div>
+<div class="checkout-sheet" id="checkoutSheet">
+  <div class="checkout-handle"></div>
+  <div class="checkout-head">
+    <div class="checkout-head-title">📋 Order Details</div>
+    <button class="checkout-head-close" id="coCloseBtn">✕</button>
+  </div>
+  <div class="checkout-scroll" id="checkoutScroll">
+
+    <div class="co-section-title">Order Type</div>
+    <div class="order-type-cards">
+      <div class="ot-card active" id="otDelivery">
+        <span class="ot-card-icon">🛵</span>
+        <div class="ot-card-label">Home Delivery</div>
+        <div class="ot-card-sub">30–45 min</div>
+      </div>
+      <div class="ot-card" id="otPickup">
+        <span class="ot-card-icon">🏃</span>
+        <div class="ot-card-label">Pickup</div>
+        <div class="ot-card-sub">Ready in 15 min</div>
+      </div>
+    </div>
+
+    <div class="co-section-title">Your Details</div>
+    <div class="co-field">
+      <label>Full Name <span>*</span></label>
+      <input class="co-input" id="coName" type="text" placeholder="Eg: Rahul Patil">
+    </div>
+    <div class="co-field">
+      <label>Mobile Number <span>*</span></label>
+      <input class="co-input" id="coPhone" type="tel" placeholder="+91 XXXXX XXXXX">
+    </div>
+    <div id="coAddressWrap" class="co-field">
+      <label>Delivery Address <span>*</span></label>
+      <input class="co-input" id="coAddress" type="text" placeholder="Full address, Wagholi, Pune">
+    </div>
+    <div class="co-field">
+      <label>Special Instructions <span style="color:#888;font-weight:400;">(optional)</span></label>
+      <input class="co-input" id="coNote" type="text" placeholder="Eg: Less spicy, extra bread...">
+    </div>
+
+    <div class="co-section-title">Bill Summary</div>
+    <div class="co-summary-card" id="coSummary"></div>
+
+    <button class="co-place-btn" id="coPlaceBtn">
+      💳 Proceed to Payment →
+    </button>
+    <a id="waOrderBtn" href="#" target="_blank"
+       style="display:flex;align-items:center;justify-content:center;gap:8px;
+              width:100%;padding:15px;margin-top:10px;
+              background:#25D366;color:#fff;border-radius:14px;
+              font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:700;
+              text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,0.3);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Order on WhatsApp
+    </a>
+
+  </div>
+</div>
+
+
+<!-- PAYMENT SHEET -->
+<div class="pay-overlay" id="payOverlay"></div>
+<div class="pay-sheet" id="paySheet">
+  <div class="pay-handle"></div>
+  <div class="pay-head">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <button id="payBackBtn" style="width:30px;height:30px;border-radius:50%;background:#f5f5f5;border:none;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;">←</button>
+      <div class="pay-head-title">💳 Payment</div>
+    </div>
+    <button class="pay-head-close" id="payCloseBtn">✕</button>
+  </div>
+  <div class="pay-scroll">
+
+    <!-- Amount -->
+    <div class="pay-amount-strip">
+      <div>
+        <div class="pay-amount-label">Total Amount to Pay</div>
+        <div style="font-size:0.7rem;opacity:.75;margin-top:2px;">Incl. delivery + taxes</div>
+      </div>
+      <div class="pay-amount-val" id="payAmountVal">₹0</div>
+    </div>
+
+    <!-- UPI -->
+    <div class="pay-sec-title">⚡ UPI (Recommended)</div>
+
+    <div class="upi-apps">
+      <div class="upi-app" onclick="selectUPIApp(this,'GPay')">
+        <span class="upi-app-icon">🟢</span>
+        <span class="upi-app-name">GPay</span>
+      </div>
+      <div class="upi-app" onclick="selectUPIApp(this,'PhonePe')">
+        <span class="upi-app-icon">🟣</span>
+        <span class="upi-app-name">PhonePe</span>
+      </div>
+      <div class="upi-app" onclick="selectUPIApp(this,'Paytm')">
+        <span class="upi-app-icon">🔵</span>
+        <span class="upi-app-name">Paytm</span>
+      </div>
+      <div class="upi-app" onclick="selectUPIApp(this,'BHIM')">
+        <span class="upi-app-icon">🇮🇳</span>
+        <span class="upi-app-name">BHIM</span>
+      </div>
+      <div class="upi-app" onclick="selectUPIApp(this,'Cred')">
+        <span class="upi-app-icon">⚫</span>
+        <span class="upi-app-name">CRED</span>
+      </div>
+    </div>
+
+    <div class="pay-method-row" id="pm-upiid" onclick="selectPayMethod('upiid')">
+      <div class="pay-method-icon" style="background:#FFF3E8;">📱</div>
+      <div class="pay-method-info">
+        <div class="pay-method-name">UPI ID / VPA</div>
+        <div class="pay-method-sub">Enter your UPI ID manually</div>
+      </div>
+      <div class="pay-radio"></div>
+    </div>
+    <div class="upi-input-wrap" id="upiInputWrap">
+      <input class="upi-input" id="upiIdInput" placeholder="yourname@upi / @okaxis">
+      <button class="upi-verify-btn">Verify</button>
+    </div>
+
+    <!-- CARDS -->
+    <div class="pay-sec-title">💳 Credit / Debit Card</div>
+    <div class="pay-method-row" id="pm-card" onclick="selectPayMethod('card')">
+      <div class="pay-method-icon" style="background:#EFF3FF;">💳</div>
+      <div class="pay-method-info">
+        <div class="pay-method-name">Credit / Debit Card</div>
+        <div class="pay-method-sub">Visa · Mastercard · RuPay · Amex</div>
+      </div>
+      <div class="pay-radio"></div>
+    </div>
+    <div class="card-form" id="cardForm">
+      <input class="card-input" placeholder="Card Number (1234 5678 9012 3456)" maxlength="19">
+      <div class="card-row">
+        <input class="card-input" placeholder="MM / YY" maxlength="5">
+        <input class="card-input" placeholder="CVV" maxlength="3" type="password">
+      </div>
+      <input class="card-input" placeholder="Cardholder Name">
+    </div>
+
+    <!-- NET BANKING -->
+    <div class="pay-sec-title">🏦 Net Banking</div>
+    <div class="pay-method-row" id="pm-sbi" onclick="selectPayMethod('sbi')">
+      <div class="pay-method-icon" style="background:#E3F2FD;">🏦</div>
+      <div class="pay-method-info">
+        <div class="pay-method-name">SBI Net Banking</div>
+        <div class="pay-method-sub">State Bank of India</div>
+      </div>
+      <div class="pay-radio"></div>
+    </div>
+    <div class="pay-method-row" id="pm-hdfc" onclick="selectPayMethod('hdfc')">
+      <div class="pay-method-icon" style="background:#E8EAF6;">🏦</div>
+      <div class="pay-method-info">
+        <div class="pay-method-name">HDFC Net Banking</div>
+        <div class="pay-method-sub">HDFC Bank</div>
+      </div>
+      <div class="pay-radio"></div>
+    </div>
+    <div class="pay-method-row" id="pm-icici" onclick="selectPayMethod('icici')">
+      <div class="pay-method-icon" style="background:#FFF3E8;">🏦</div>
+      <div class="pay-method-info">
+        <div class="pay-method-name">ICICI Net Banking</div>
+        <div class="pay-method-sub">ICICI Bank</div>
+      </div>
+      <div class="pay-radio"></div>
+    </div>
+    <div class="pay-method-row" id="pm-other-bank" onclick="selectPayMethod('other-bank')">
+      <div class="pay-method-icon" style="background:#F3E5F5;">🏛️</div>
+      <div class="pay-method-info">
+        <div class="pay-method-name">Other Banks</div>
+        <div class="pay-method-sub">All Indian banks supported</div>
+      </div>
+      <div class="pay-radio"></div>
+    </div>
+
+    <!-- WALLETS -->
+    <div class="pay-sec-title">👛 Wallets</div>
+    <div class="pay-method-row" id="pm-paytm" onclick="selectPayMethod('paytm')">
+      <div class="pay-method-icon" style="background:#E3F2FD;">💙</div>
+      <div class="pay-method-info">
+        <div class="pay-method-name">Paytm Wallet</div>
+        <div class="pay-method-sub">Pay using Paytm balance</div>
+      </div>
+      <div class="pay-radio"></div>
+    </div>
+    <div class="pay-method-row" id="pm-amazon" onclick="selectPayMethod('amazon')">
+      <div class="pay-method-icon" style="background:#FFF8E1;">🟡</div>
+      <div class="pay-method-info">
+        <div class="pay-method-name">Amazon Pay</div>
+        <div class="pay-method-sub">Pay using Amazon balance</div>
+      </div>
+      <div class="pay-radio"></div>
+    </div>
+    <div class="pay-method-row" id="pm-mobikwik" onclick="selectPayMethod('mobikwik')">
+      <div class="pay-method-icon" style="background:#E8F5E9;">💚</div>
+      <div class="pay-method-info">
+        <div class="pay-method-name">MobiKwik</div>
+        <div class="pay-method-sub">Pay using MobiKwik wallet</div>
+      </div>
+      <div class="pay-radio"></div>
+    </div>
+
+    <!-- COD -->
+    <div class="pay-sec-title">💵 Pay on Delivery</div>
+    <div class="pay-method-row selected" id="pm-cod" onclick="selectPayMethod('cod')">
+      <div class="pay-badge">Popular</div>
+      <div class="pay-method-icon" style="background:#E8F5E9;">💵</div>
+      <div class="pay-method-info">
+        <div class="pay-method-name">Cash on Delivery</div>
+        <div class="pay-method-sub">Pay when your order arrives</div>
+      </div>
+      <div class="pay-radio"></div>
+    </div>
+
+    <!-- PAY NOW BUTTON -->
+    <button class="pay-now-btn" id="payNowBtn">
+      <span>🔒 Pay & Place Order</span>
+      <span class="pnb-right" id="payNowAmt">₹0</span>
+    </button>
+    <div class="safe-badge">🔒 100% Safe & Secure Payments &nbsp;|&nbsp; 🛡️ SSL Encrypted</div>
+
+  </div>
+</div>
+
+
+<!-- AUTH OVERLAY -->
+<div class="auth-overlay" id="authOverlay"></div>
+
+<!-- AUTH SHEET (Login / Signup) -->
+<div class="auth-sheet" id="authSheet">
+  <div class="auth-handle"></div>
+  <div class="auth-head">
+    <div class="auth-head-title">👤 My Account</div>
+    <button class="auth-head-close" id="authCloseBtn">✕</button>
+  </div>
+  <div class="auth-scroll">
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="loginTabBtn" onclick="switchAuthTab('login')">Login</button>
+      <button class="auth-tab" id="signupTabBtn" onclick="switchAuthTab('signup')">Sign Up</button>
+    </div>
+
+    <div id="authError" class="auth-error"></div>
+
+    <!-- LOGIN FORM -->
+    <div id="loginForm">
+      <div class="auth-field">
+        <label>📱 Mobile Number</label>
+        <input class="auth-input" id="loginPhone" type="tel" placeholder="+91 XXXXX XXXXX">
+      </div>
+      <div class="auth-field">
+        <label>🔒 Password</label>
+        <input class="auth-input" id="loginPass" type="password" placeholder="Enter your password">
+      </div>
+      <button class="auth-submit-btn" onclick="doLogin()">Login to My Account →</button>
+      <div class="auth-divider">or</div>
+      <button style="width:100%;padding:13px;border:1.5px solid #e0e0e0;border-radius:12px;background:#fff;font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:600;cursor:pointer;color:#555;" onclick="switchAuthTab('signup')">
+        New here? Create Account →
+      </button>
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <div id="signupForm" style="display:none;">
+      <div class="auth-field">
+        <label>👤 Full Name *</label>
+        <input class="auth-input" id="signupName" type="text" placeholder="Your full name">
+      </div>
+      <div class="auth-field">
+        <label>📱 Mobile Number *</label>
+        <input class="auth-input" id="signupPhone" type="tel" placeholder="+91 XXXXX XXXXX">
+      </div>
+      <div class="auth-field">
+        <label>✉️ Email (optional)</label>
+        <input class="auth-input" id="signupEmail" type="email" placeholder="your@email.com">
+      </div>
+      <div class="auth-field">
+        <label>📍 Default Address</label>
+        <input class="auth-input" id="signupAddress" type="text" placeholder="Your home address, Wagholi, Pune">
+      </div>
+      <div class="auth-field">
+        <label>🔒 Create Password *</label>
+        <input class="auth-input" id="signupPass" type="password" placeholder="Min 6 characters">
+      </div>
+      <button class="auth-submit-btn" onclick="doSignup()">Create My Account 🎉</button>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE SHEET -->
+<div class="auth-overlay" id="profileOverlay"></div>
+<div class="profile-sheet" id="profileSheet">
+  <div class="auth-handle"></div>
+  <div class="auth-head" style="padding:14px 20px;">
+    <div class="auth-head-title">My Profile</div>
+    <button class="auth-head-close" id="profileCloseBtn">✕</button>
+  </div>
+  <div class="profile-scroll" id="profileScrollContent"></div>
+</div>
+
+<!-- SUCCESS SCREEN -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-card">
+    <span class="sc-lottie">🎉</span>
+    <div class="sc-title">Order Confirmed!</div>
+    <div class="sc-sub" id="scSub">Your order is being prepared. We will deliver it soon! 🛵</div>
+    <div class="sc-order-id" id="scOrderId">Order #JAS-000000</div>
+    <div class="sc-info-row" id="scInfoRow"></div>
+    <button class="sc-close-btn" id="scCloseBtn">Thank You! 🙏 Go Back</button>
+  </div>
+</div>
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<a href="https://wa.me/917499225827?text=Hello%20Patil%20%26%20Sons!%20I%20want%20to%20place%20an%20order%20%F0%9F%8D%BD%EF%B8%8F"
+   target="_blank"
+   id="waFloat"
+   style="position:fixed;bottom:140px;right:16px;z-index:300;
+          width:52px;height:52px;border-radius:50%;
+          background:#25D366;display:flex;align-items:center;justify-content:center;
+          box-shadow:0 4px 16px rgba(37,211,102,0.5);text-decoration:none;
+          animation:waPulse 2s ease-in-out infinite;">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- FLOATING CART BAR -->
+<div class="floating-cart" id="floatingCart">
+  <div class="fc-left">
+    <div class="fc-items" id="fcItems">0 items</div>
+    <div class="fc-price" id="fcPrice">₹0</div>
+  </div>
+  <button class="fc-btn" id="fcBtn">View Cart →</button>
+</div>
+
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <a class="nav-item active" href="#top" onclick="scrollToTop()"><span class="nav-icon">🏠</span>Home</a>
+  <a class="nav-item" href="#menu-section"><span class="nav-icon">🍽️</span>Menu</a>
+  <a class="nav-item" href="#favourites-section"><span class="nav-icon">❤️</span>Favourites</a>
+  <a class="nav-item" href="tel:+917499225827"><span class="nav-icon">📞</span>Call Us</a>
+  <a class="nav-item" href="https://wa.me/917499225827?text=Hello%20Patil%20%26%20Sons!%20I%20want%20to%20place%20an%20order%20%F0%9F%8D%BD%EF%B8%8F" target="_blank"><span class="nav-icon" style="color:#25D366;">💬</span>WhatsApp</a>
+  <a class="nav-item" href="https://maps.google.com/?q=Wagholi,Pune,Maharashtra,India" target="_blank"><span class="nav-icon">📍</span>Location</a>
+  <a class="nav-item" href="#" onclick="openProfileOrAuth();return false;"><span class="nav-icon" id="navProfileIcon">👤</span>Profile</a>
+</nav>
+
+<script>
+const menu = [
+
+  // ── MAHARASHTRIAN (22 dishes) ──
+  {id:1,  name:"Poha",                    cat:"maharashtrian", type:"veg",    price:"₹30",  rating:"4.8", img:"https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=200&q=80"},
+  {id:2,  name:"Misal Pav",               cat:"maharashtrian", type:"veg",    price:"₹45",  rating:"4.9", img:"https://images.unsplash.com/photo-1630383249896-424e482df921?w=200&q=80"},
+  {id:3,  name:"Vada Pav",                cat:"maharashtrian", type:"veg",    price:"₹20",  rating:"4.7", img:"https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=200&q=80"},
+  {id:4,  name:"Thalipeeth",              cat:"maharashtrian", type:"veg",    price:"₹55",  rating:"4.6", img:"https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=200&q=80"},
+  {id:5,  name:"Pithla Bhakri",           cat:"maharashtrian", type:"veg",    price:"₹60",  rating:"4.8", img:"https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=200&q=80"},
+  {id:6,  name:"Mutton Rassa",            cat:"maharashtrian", type:"nonveg", price:"₹120", rating:"4.9", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:7,  name:"Sabudana Khichdi",        cat:"maharashtrian", type:"veg",    price:"₹40",  rating:"4.7", img:"https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=200&q=80"},
+  {id:8,  name:"Kanda Bhaji",             cat:"maharashtrian", type:"veg",    price:"₹30",  rating:"4.6", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80"},
+  {id:9,  name:"Puran Poli",              cat:"maharashtrian", type:"veg",    price:"₹35",  rating:"4.8", img:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=80"},
+  {id:10, name:"Usal Pav",                cat:"maharashtrian", type:"veg",    price:"₹40",  rating:"4.7", img:"https://images.unsplash.com/photo-1630383249896-424e482df921?w=200&q=80"},
+  {id:11, name:"Shev Bhaji",              cat:"maharashtrian", type:"veg",    price:"₹50",  rating:"4.6", img:"https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=200&q=80"},
+  {id:12, name:"Bharli Vangi",            cat:"maharashtrian", type:"veg",    price:"₹70",  rating:"4.7", img:"https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=200&q=80"},
+  {id:13, name:"Kolhapuri Chicken",       cat:"maharashtrian", type:"nonveg", price:"₹130", rating:"4.9", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:14, name:"Zunka Bhakar",            cat:"maharashtrian", type:"veg",    price:"₹50",  rating:"4.5", img:"https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=200&q=80"},
+  {id:15, name:"Batata Vada",             cat:"maharashtrian", type:"veg",    price:"₹20",  rating:"4.7", img:"https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=200&q=80"},
+  {id:16, name:"Chicken Sukka",           cat:"maharashtrian", type:"nonveg", price:"₹125", rating:"4.8", img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=200&q=80"},
+  {id:17, name:"Matki Usal",              cat:"maharashtrian", type:"veg",    price:"₹45",  rating:"4.6", img:"https://images.unsplash.com/photo-1630383249896-424e482df921?w=200&q=80"},
+  {id:18, name:"Sol Kadhi",               cat:"maharashtrian", type:"veg",    price:"₹25",  rating:"4.5", img:"https://images.unsplash.com/photo-1543332164-6e82f355badc?w=200&q=80"},
+  {id:19, name:"Maharashtrian Thali",     cat:"maharashtrian", type:"veg",    price:"₹99",  rating:"4.9", img:"https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=200&q=80"},
+  {id:20, name:"Kothimbir Vadi",          cat:"maharashtrian", type:"veg",    price:"₹35",  rating:"4.7", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80"},
+  {id:21, name:"Masala Bhaat",            cat:"maharashtrian", type:"veg",    price:"₹55",  rating:"4.6", img:"https://images.unsplash.com/photo-1596797038530-2c107229654b?w=200&q=80"},
+  {id:22, name:"Kombdi Vade",             cat:"maharashtrian", type:"nonveg", price:"₹140", rating:"4.9", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:208,name:"Chicken Rassa",           cat:"maharashtrian", type:"nonveg", price:"₹110", rating:"4.9", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:209,name:"Mutton Tambda Rassa",     cat:"maharashtrian", type:"nonveg", price:"₹145", rating:"4.9", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:210,name:"Pandhra Rassa",           cat:"maharashtrian", type:"nonveg", price:"₹120", rating:"4.8", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:211,name:"Chicken Thali (Maharaj)", cat:"maharashtrian", type:"nonveg", price:"₹135", rating:"4.9", img:"https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=200&q=80"},
+  {id:212,name:"Mutton Thali (Maharaj)",  cat:"maharashtrian", type:"nonveg", price:"₹165", rating:"4.9", img:"https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=200&q=80"},
+  {id:213,name:"Egg Bhurji Bhakri",       cat:"maharashtrian", type:"nonveg", price:"₹55",  rating:"4.7", img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&q=80"},
+  {id:214,name:"Kheema Pav (MH Style)",   cat:"maharashtrian", type:"nonveg", price:"₹75",  rating:"4.8", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:215,name:"Fish Curry Bhakri",       cat:"maharashtrian", type:"nonveg", price:"₹125", rating:"4.8", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:216,name:"Surmai Fry",              cat:"maharashtrian", type:"nonveg", price:"₹145", rating:"4.8", img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=200&q=80"},
+  {id:217,name:"Chicken Kheema Bhakri",   cat:"maharashtrian", type:"nonveg", price:"₹99",  rating:"4.7", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:218,name:"Prawns Masala (MH)",      cat:"maharashtrian", type:"nonveg", price:"₹165", rating:"4.9", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+
+  // ── NORTH INDIAN (22 dishes) ──
+  {id:23, name:"Dal Makhani",             cat:"north", type:"veg",    price:"₹79",  rating:"4.7", img:"https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=200&q=80"},
+  {id:24, name:"Paneer Butter Masala",    cat:"north", type:"veg",    price:"₹99",  rating:"4.8", img:"https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=200&q=80"},
+  {id:25, name:"Butter Naan",             cat:"north", type:"veg",    price:"₹20",  rating:"4.6", img:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=80"},
+  {id:26, name:"Butter Roti",             cat:"north", type:"veg",    price:"₹10",  rating:"4.5", img:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=80"},
+  {id:27, name:"Veg Thali",               cat:"north", type:"veg",    price:"₹79",  rating:"4.7", img:"https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=200&q=80"},
+  {id:28, name:"Shahi Paneer",            cat:"north", type:"veg",    price:"₹109", rating:"4.8", img:"https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=200&q=80"},
+  {id:29, name:"Chana Masala",            cat:"north", type:"veg",    price:"₹69",  rating:"4.7", img:"https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=200&q=80"},
+  {id:30, name:"Kadai Paneer",            cat:"north", type:"veg",    price:"₹99",  rating:"4.8", img:"https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=200&q=80"},
+  {id:31, name:"Matar Paneer",            cat:"north", type:"veg",    price:"₹89",  rating:"4.6", img:"https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=200&q=80"},
+  {id:32, name:"Rajma Chawal",            cat:"north", type:"veg",    price:"₹79",  rating:"4.8", img:"https://images.unsplash.com/photo-1596797038530-2c107229654b?w=200&q=80"},
+  {id:33, name:"Aloo Paratha",            cat:"north", type:"veg",    price:"₹45",  rating:"4.7", img:"https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=200&q=80"},
+  {id:34, name:"Palak Paneer",            cat:"north", type:"veg",    price:"₹89",  rating:"4.7", img:"https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=200&q=80"},
+  {id:35, name:"Chole Bhature",           cat:"north", type:"veg",    price:"₹59",  rating:"4.8", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80"},
+  {id:36, name:"Dal Tadka",               cat:"north", type:"veg",    price:"₹65",  rating:"4.6", img:"https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=200&q=80"},
+  {id:37, name:"Chicken Tikka Masala",    cat:"north", type:"nonveg", price:"₹119", rating:"4.9", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:38, name:"Mutton Curry (North)",    cat:"north", type:"nonveg", price:"₹139", rating:"4.8", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:39, name:"Paneer Tikka",            cat:"north", type:"veg",    price:"₹99",  rating:"4.7", img:"https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=200&q=80"},
+  {id:40, name:"Aloo Gobi",               cat:"north", type:"veg",    price:"₹69",  rating:"4.5", img:"https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=200&q=80"},
+  {id:41, name:"Baingan Bharta",          cat:"north", type:"veg",    price:"₹75",  rating:"4.6", img:"https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=200&q=80"},
+  {id:42, name:"Jeera Rice",              cat:"north", type:"veg",    price:"₹45",  rating:"4.6", img:"https://images.unsplash.com/photo-1596797038530-2c107229654b?w=200&q=80"},
+  {id:43, name:"North Indian Thali",      cat:"north", type:"veg",    price:"₹120", rating:"4.9", img:"https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=200&q=80"},
+  {id:44, name:"Tandoori Roti",           cat:"north", type:"veg",    price:"₹15",  rating:"4.5", img:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=80"},
+  {id:194,name:"Butter Chicken",          cat:"north", type:"nonveg", price:"₹119", rating:"4.9", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:195,name:"Murgh Makhani",           cat:"north", type:"nonveg", price:"₹125", rating:"4.9", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:196,name:"Seekh Kabab",             cat:"north", type:"nonveg", price:"₹109", rating:"4.7", img:"https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=200&q=80"},
+  {id:197,name:"Tandoori Chicken Half",   cat:"north", type:"nonveg", price:"₹129", rating:"4.8", img:"https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=200&q=80"},
+  {id:198,name:"Chicken Korma",           cat:"north", type:"nonveg", price:"₹115", rating:"4.7", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:199,name:"Mutton Rogan Josh",       cat:"north", type:"nonveg", price:"₹149", rating:"4.9", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:200,name:"Mutton Keema Naan",       cat:"north", type:"nonveg", price:"₹79",  rating:"4.7", img:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=80"},
+  {id:201,name:"Fish Curry (North)",      cat:"north", type:"nonveg", price:"₹129", rating:"4.7", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:202,name:"Egg Curry (North)",       cat:"north", type:"nonveg", price:"₹65",  rating:"4.6", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:203,name:"Chicken Biryani (Dum)",   cat:"north", type:"nonveg", price:"₹109", rating:"4.9", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200&q=80"},
+  {id:204,name:"Mutton Biryani (Dum)",    cat:"north", type:"nonveg", price:"₹155", rating:"4.9", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200&q=80"},
+  {id:205,name:"Chicken Handi",           cat:"north", type:"nonveg", price:"₹119", rating:"4.8", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:206,name:"Reshmi Kabab",            cat:"north", type:"nonveg", price:"₹119", rating:"4.7", img:"https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=200&q=80"},
+  {id:207,name:"Nihari (Mutton)",         cat:"north", type:"nonveg", price:"₹159", rating:"4.8", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+
+  // ── SNACKS & STARTERS (22 dishes) ──
+  {id:45, name:"Samosa",                  cat:"snacks", type:"veg",    price:"₹15",  rating:"4.6", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80"},
+  {id:46, name:"Bread Pakoda",            cat:"snacks", type:"veg",    price:"₹25",  rating:"4.5", img:"https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=200&q=80"},
+  {id:47, name:"Egg Bhurji Pav",          cat:"snacks", type:"nonveg", price:"₹45",  rating:"4.7", img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&q=80"},
+  {id:48, name:"Veg Momos",               cat:"snacks", type:"veg",    price:"₹49",  rating:"4.6", img:"https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?w=200&q=80"},
+  {id:49, name:"Pani Puri",               cat:"snacks", type:"veg",    price:"₹30",  rating:"4.9", img:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=80"},
+  {id:50, name:"Bhel Puri",               cat:"snacks", type:"veg",    price:"₹30",  rating:"4.7", img:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=80"},
+  {id:51, name:"Sev Puri",                cat:"snacks", type:"veg",    price:"₹30",  rating:"4.7", img:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=80"},
+  {id:52, name:"Dahi Puri",               cat:"snacks", type:"veg",    price:"₹40",  rating:"4.8", img:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=80"},
+  {id:53, name:"Veg Cutlet",              cat:"snacks", type:"veg",    price:"₹35",  rating:"4.5", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80"},
+  {id:54, name:"Aloo Tikki",              cat:"snacks", type:"veg",    price:"₹30",  rating:"4.6", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80"},
+  {id:55, name:"Chicken Momos",           cat:"snacks", type:"nonveg", price:"₹59",  rating:"4.7", img:"https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?w=200&q=80"},
+  {id:56, name:"Paneer Tikka (Starter)",  cat:"snacks", type:"veg",    price:"₹89",  rating:"4.8", img:"https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=200&q=80"},
+  {id:57, name:"Chicken 65",              cat:"snacks", type:"nonveg", price:"₹99",  rating:"4.8", img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=200&q=80"},
+  {id:58, name:"Veg Pakoda",              cat:"snacks", type:"veg",    price:"₹35",  rating:"4.5", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80"},
+  {id:59, name:"Spring Roll",             cat:"snacks", type:"veg",    price:"₹45",  rating:"4.5", img:"https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=200&q=80"},
+  {id:60, name:"Masala Papad",            cat:"snacks", type:"veg",    price:"₹20",  rating:"4.4", img:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=80"},
+  {id:61, name:"Chicken Lollipop",        cat:"snacks", type:"nonveg", price:"₹99",  rating:"4.8", img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=200&q=80"},
+  {id:62, name:"Dahi Vada",               cat:"snacks", type:"veg",    price:"₹35",  rating:"4.6", img:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=80"},
+  {id:63, name:"Hara Bhara Kabab",        cat:"snacks", type:"veg",    price:"₹69",  rating:"4.6", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80"},
+  {id:64, name:"Corn Chaat",              cat:"snacks", type:"veg",    price:"₹35",  rating:"4.6", img:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=80"},
+  {id:65, name:"Chicken Seekh Kabab",     cat:"snacks", type:"nonveg", price:"₹109", rating:"4.7", img:"https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=200&q=80"},
+  {id:66, name:"Ragda Pattice",           cat:"snacks", type:"veg",    price:"₹45",  rating:"4.7", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80"},
+  {id:219,name:"Chicken Tikka (Starter)", cat:"snacks", type:"nonveg", price:"₹109", rating:"4.8", img:"https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=200&q=80"},
+  {id:220,name:"Fish Fry (Starter)",      cat:"snacks", type:"nonveg", price:"₹99",  rating:"4.7", img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=200&q=80"},
+  {id:221,name:"Mutton Seekh (Starter)",  cat:"snacks", type:"nonveg", price:"₹119", rating:"4.7", img:"https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=200&q=80"},
+  {id:222,name:"Egg Pakoda",              cat:"snacks", type:"nonveg", price:"₹45",  rating:"4.5", img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&q=80"},
+  {id:223,name:"Chicken Wings",           cat:"snacks", type:"nonveg", price:"₹119", rating:"4.8", img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=200&q=80"},
+  {id:224,name:"Prawn Fry (Starter)",     cat:"snacks", type:"nonveg", price:"₹129", rating:"4.8", img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=200&q=80"},
+  {id:225,name:"Kheema Pav",              cat:"snacks", type:"nonveg", price:"₹65",  rating:"4.8", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:226,name:"Chicken Shawarma",        cat:"snacks", type:"nonveg", price:"₹79",  rating:"4.7", img:"https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=200&q=80"},
+  {id:227,name:"Mutton Momos",            cat:"snacks", type:"nonveg", price:"₹69",  rating:"4.6", img:"https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?w=200&q=80"},
+
+  // ── RICE & BIRYANI (21 dishes) ──
+  {id:67, name:"Veg Biryani",             cat:"rice", type:"veg",    price:"₹69",  rating:"4.7", img:"https://images.unsplash.com/photo-1596797038530-2c107229654b?w=200&q=80"},
+  {id:68, name:"Chicken Biryani",         cat:"rice", type:"nonveg", price:"₹99",  rating:"4.9", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200&q=80"},
+  {id:69, name:"Mutton Biryani",          cat:"rice", type:"nonveg", price:"₹149", rating:"4.9", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200&q=80"},
+  {id:70, name:"Egg Biryani",             cat:"rice", type:"nonveg", price:"₹79",  rating:"4.7", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200&q=80"},
+  {id:71, name:"Veg Fried Rice",          cat:"rice", type:"veg",    price:"₹59",  rating:"4.5", img:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=200&q=80"},
+  {id:72, name:"Chicken Fried Rice",      cat:"rice", type:"nonveg", price:"₹89",  rating:"4.7", img:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=200&q=80"},
+  {id:73, name:"Egg Fried Rice",          cat:"rice", type:"nonveg", price:"₹69",  rating:"4.6", img:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=200&q=80"},
+  {id:74, name:"Jeera Rice",              cat:"rice", type:"veg",    price:"₹45",  rating:"4.6", img:"https://images.unsplash.com/photo-1596797038530-2c107229654b?w=200&q=80"},
+  {id:75, name:"Masala Rice",             cat:"rice", type:"veg",    price:"₹55",  rating:"4.6", img:"https://images.unsplash.com/photo-1596797038530-2c107229654b?w=200&q=80"},
+  {id:76, name:"Paneer Biryani",          cat:"rice", type:"veg",    price:"₹89",  rating:"4.8", img:"https://images.unsplash.com/photo-1596797038530-2c107229654b?w=200&q=80"},
+  {id:77, name:"Curd Rice",               cat:"rice", type:"veg",    price:"₹45",  rating:"4.5", img:"https://images.unsplash.com/photo-1596797038530-2c107229654b?w=200&q=80"},
+  {id:78, name:"Dal Khichdi",             cat:"rice", type:"veg",    price:"₹55",  rating:"4.6", img:"https://images.unsplash.com/photo-1596797038530-2c107229654b?w=200&q=80"},
+  {id:79, name:"Chicken Pulao",           cat:"rice", type:"nonveg", price:"₹89",  rating:"4.7", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200&q=80"},
+  {id:80, name:"Veg Pulao",               cat:"rice", type:"veg",    price:"₹59",  rating:"4.6", img:"https://images.unsplash.com/photo-1596797038530-2c107229654b?w=200&q=80"},
+  {id:81, name:"Schezwan Fried Rice",     cat:"rice", type:"veg",    price:"₹69",  rating:"4.5", img:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=200&q=80"},
+  {id:82, name:"Chicken Schezwan Rice",   cat:"rice", type:"nonveg", price:"₹89",  rating:"4.6", img:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=200&q=80"},
+  {id:83, name:"Mushroom Biryani",        cat:"rice", type:"veg",    price:"₹79",  rating:"4.7", img:"https://images.unsplash.com/photo-1596797038530-2c107229654b?w=200&q=80"},
+  {id:84, name:"Prawns Biryani",          cat:"rice", type:"nonveg", price:"₹159", rating:"4.8", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200&q=80"},
+  {id:85, name:"Steam Rice + Dal",        cat:"rice", type:"veg",    price:"₹49",  rating:"4.5", img:"https://images.unsplash.com/photo-1596797038530-2c107229654b?w=200&q=80"},
+  {id:86, name:"Tadka Rice",              cat:"rice", type:"veg",    price:"₹49",  rating:"4.5", img:"https://images.unsplash.com/photo-1596797038530-2c107229654b?w=200&q=80"},
+  {id:87, name:"Hyderabadi Dum Biryani",  cat:"rice", type:"nonveg", price:"₹119", rating:"4.9", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200&q=80"},
+
+  // ── BEVERAGES (21 dishes) ──
+  {id:88, name:"Masala Chai",             cat:"beverages", type:"veg", price:"₹15",  rating:"4.9", img:"https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=200&q=80"},
+  {id:89, name:"Filter Coffee",           cat:"beverages", type:"veg", price:"₹20",  rating:"4.8", img:"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=200&q=80"},
+  {id:90, name:"Sweet Lassi",             cat:"beverages", type:"veg", price:"₹35",  rating:"4.7", img:"https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=200&q=80"},
+  {id:91, name:"Nimbu Pani",              cat:"beverages", type:"veg", price:"₹20",  rating:"4.6", img:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=200&q=80"},
+  {id:92, name:"Chaas / Buttermilk",      cat:"beverages", type:"veg", price:"₹15",  rating:"4.5", img:"https://images.unsplash.com/photo-1543332164-6e82f355badc?w=200&q=80"},
+  {id:93, name:"Mango Lassi",             cat:"beverages", type:"veg", price:"₹45",  rating:"4.8", img:"https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=200&q=80"},
+  {id:94, name:"Rose Sharbat",            cat:"beverages", type:"veg", price:"₹20",  rating:"4.5", img:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=200&q=80"},
+  {id:95, name:"Cold Coffee",             cat:"beverages", type:"veg", price:"₹40",  rating:"4.7", img:"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=200&q=80"},
+  {id:96, name:"Strawberry Milkshake",    cat:"beverages", type:"veg", price:"₹55",  rating:"4.6", img:"https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=200&q=80"},
+  {id:97, name:"Chocolate Milkshake",     cat:"beverages", type:"veg", price:"₹55",  rating:"4.7", img:"https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=200&q=80"},
+  {id:98, name:"Fresh Lime Soda",         cat:"beverages", type:"veg", price:"₹25",  rating:"4.6", img:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=200&q=80"},
+  {id:99, name:"Watermelon Juice",        cat:"beverages", type:"veg", price:"₹35",  rating:"4.7", img:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=200&q=80"},
+  {id:100,name:"Sugarcane Juice",         cat:"beverages", type:"veg", price:"₹25",  rating:"4.8", img:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=200&q=80"},
+  {id:101,name:"Coconut Water",           cat:"beverages", type:"veg", price:"₹30",  rating:"4.7", img:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=200&q=80"},
+  {id:102,name:"Aam Panna",               cat:"beverages", type:"veg", price:"₹25",  rating:"4.6", img:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=200&q=80"},
+  {id:103,name:"Thandai",                 cat:"beverages", type:"veg", price:"₹35",  rating:"4.7", img:"https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=200&q=80"},
+  {id:104,name:"Haldi Doodh",             cat:"beverages", type:"veg", price:"₹25",  rating:"4.6", img:"https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=200&q=80"},
+  {id:105,name:"Ginger Lemon Tea",        cat:"beverages", type:"veg", price:"₹20",  rating:"4.7", img:"https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=200&q=80"},
+  {id:106,name:"Pineapple Juice",         cat:"beverages", type:"veg", price:"₹35",  rating:"4.5", img:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=200&q=80"},
+  {id:107,name:"Orange Juice",            cat:"beverages", type:"veg", price:"₹35",  rating:"4.5", img:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=200&q=80"},
+  {id:108,name:"Badam Milk",              cat:"beverages", type:"veg", price:"₹40",  rating:"4.6", img:"https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=200&q=80"},
+
+  // ── SWEETS & DESSERTS (21 dishes) ──
+  {id:109,name:"Gulab Jamun",             cat:"desserts", type:"veg", price:"₹25",  rating:"4.8", img:"https://images.unsplash.com/photo-1599744331096-7c7c0da7b4aa?w=200&q=80"},
+  {id:110,name:"Kheer",                   cat:"desserts", type:"veg", price:"₹35",  rating:"4.7", img:"https://images.unsplash.com/photo-1607478900766-efe13248b125?w=200&q=80"},
+  {id:111,name:"Shrikhand",               cat:"desserts", type:"veg", price:"₹45",  rating:"4.9", img:"https://images.unsplash.com/photo-1488477181946-6428a0291777?w=200&q=80"},
+  {id:112,name:"Jalebi",                  cat:"desserts", type:"veg", price:"₹30",  rating:"4.7", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80"},
+  {id:113,name:"Vanilla Ice Cream",       cat:"desserts", type:"veg", price:"₹29",  rating:"4.6", img:"https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&q=80"},
+  {id:114,name:"Halwa",                   cat:"desserts", type:"veg", price:"₹35",  rating:"4.6", img:"https://images.unsplash.com/photo-1607478900766-efe13248b125?w=200&q=80"},
+  {id:115,name:"Basundi",                 cat:"desserts", type:"veg", price:"₹45",  rating:"4.8", img:"https://images.unsplash.com/photo-1607478900766-efe13248b125?w=200&q=80"},
+  {id:116,name:"Rasgulla",                cat:"desserts", type:"veg", price:"₹30",  rating:"4.7", img:"https://images.unsplash.com/photo-1599744331096-7c7c0da7b4aa?w=200&q=80"},
+  {id:117,name:"Ladoo",                   cat:"desserts", type:"veg", price:"₹20",  rating:"4.7", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80"},
+  {id:118,name:"Kaju Barfi",              cat:"desserts", type:"veg", price:"₹50",  rating:"4.8", img:"https://images.unsplash.com/photo-1599744331096-7c7c0da7b4aa?w=200&q=80"},
+  {id:119,name:"Modak",                   cat:"desserts", type:"veg", price:"₹35",  rating:"4.9", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80"},
+  {id:120,name:"Rabdi",                   cat:"desserts", type:"veg", price:"₹40",  rating:"4.7", img:"https://images.unsplash.com/photo-1607478900766-efe13248b125?w=200&q=80"},
+  {id:121,name:"Phirni",                  cat:"desserts", type:"veg", price:"₹40",  rating:"4.6", img:"https://images.unsplash.com/photo-1607478900766-efe13248b125?w=200&q=80"},
+  {id:122,name:"Malpua",                  cat:"desserts", type:"veg", price:"₹40",  rating:"4.7", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80"},
+  {id:123,name:"Chocolate Brownie",       cat:"desserts", type:"veg", price:"₹55",  rating:"4.6", img:"https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&q=80"},
+  {id:124,name:"Kulfi",                   cat:"desserts", type:"veg", price:"₹35",  rating:"4.8", img:"https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&q=80"},
+  {id:125,name:"Gajar Halwa",             cat:"desserts", type:"veg", price:"₹45",  rating:"4.8", img:"https://images.unsplash.com/photo-1607478900766-efe13248b125?w=200&q=80"},
+  {id:126,name:"Sandesh",                 cat:"desserts", type:"veg", price:"₹35",  rating:"4.6", img:"https://images.unsplash.com/photo-1599744331096-7c7c0da7b4aa?w=200&q=80"},
+  {id:127,name:"Imarti",                  cat:"desserts", type:"veg", price:"₹30",  rating:"4.5", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80"},
+  {id:128,name:"Badam Halwa",             cat:"desserts", type:"veg", price:"₹55",  rating:"4.7", img:"https://images.unsplash.com/photo-1607478900766-efe13248b125?w=200&q=80"},
+  {id:129,name:"Mango Kulfi",             cat:"desserts", type:"veg", price:"₹40",  rating:"4.8", img:"https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&q=80"},
+
+  // ── CHICKEN (22 dishes) ──
+  {id:130,name:"Chicken Biryani",         cat:"chicken", type:"nonveg", price:"₹99",  rating:"4.9", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200&q=80"},
+  {id:131,name:"Chicken Curry",           cat:"chicken", type:"nonveg", price:"₹99",  rating:"4.8", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:132,name:"Chicken Masala",          cat:"chicken", type:"nonveg", price:"₹109", rating:"4.8", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:133,name:"Chicken Rassa",           cat:"chicken", type:"nonveg", price:"₹110", rating:"4.9", img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&q=80"},
+  {id:134,name:"Chicken Fry",             cat:"chicken", type:"nonveg", price:"₹119", rating:"4.7", img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=200&q=80"},
+  {id:135,name:"Chicken Tandoori",        cat:"chicken", type:"nonveg", price:"₹129", rating:"4.8", img:"https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=200&q=80"},
+  {id:136,name:"Chicken Roll",            cat:"chicken", type:"nonveg", price:"₹59",  rating:"4.7", img:"https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=200&q=80"},
+  {id:137,name:"Chicken Thali",           cat:"chicken", type:"nonveg", price:"₹129", rating:"4.9", img:"https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=200&q=80"},
+  {id:138,name:"Chicken Soup",            cat:"chicken", type:"nonveg", price:"₹59",  rating:"4.6", img:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=200&q=80"},
+  {id:139,name:"Chicken Fried Rice",      cat:"chicken", type:"nonveg", price:"₹89",  rating:"4.7", img:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=200&q=80"},
+  {id:140,name:"Chicken Tikka",           cat:"chicken", type:"nonveg", price:"₹109", rating:"4.8", img:"https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=200&q=80"},
+  {id:141,name:"Chicken 65",              cat:"chicken", type:"nonveg", price:"₹109", rating:"4.8", img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=200&q=80"},
+  {id:142,name:"Butter Chicken",          cat:"chicken", type:"nonveg", price:"₹119", rating:"4.9", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:143,name:"Chicken Keema",           cat:"chicken", type:"nonveg", price:"₹99",  rating:"4.7", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:144,name:"Chicken Lollipop",        cat:"chicken", type:"nonveg", price:"₹99",  rating:"4.8", img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=200&q=80"},
+  {id:145,name:"Chicken Noodles",         cat:"chicken", type:"nonveg", price:"₹79",  rating:"4.5", img:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=200&q=80"},
+  {id:146,name:"Chicken Kabab",           cat:"chicken", type:"nonveg", price:"₹109", rating:"4.8", img:"https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=200&q=80"},
+  {id:147,name:"Kolhapuri Chicken",       cat:"chicken", type:"nonveg", price:"₹130", rating:"4.9", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:148,name:"Chicken Handi",           cat:"chicken", type:"nonveg", price:"₹119", rating:"4.7", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:149,name:"Chicken Sukha",           cat:"chicken", type:"nonveg", price:"₹120", rating:"4.8", img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=200&q=80"},
+  {id:150,name:"Chicken Vindaloo",        cat:"chicken", type:"nonveg", price:"₹115", rating:"4.7", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:151,name:"Chicken Do Pyaza",        cat:"chicken", type:"nonveg", price:"₹109", rating:"4.7", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+
+  // ── MUTTON (21 dishes) ──
+  {id:152,name:"Mutton Biryani",          cat:"mutton", type:"nonveg", price:"₹149", rating:"4.9", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200&q=80"},
+  {id:153,name:"Mutton Rassa",            cat:"mutton", type:"nonveg", price:"₹130", rating:"4.9", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:154,name:"Mutton Curry",            cat:"mutton", type:"nonveg", price:"₹139", rating:"4.8", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:155,name:"Mutton Masala",           cat:"mutton", type:"nonveg", price:"₹145", rating:"4.8", img:"https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=200&q=80"},
+  {id:156,name:"Mutton Thali",            cat:"mutton", type:"nonveg", price:"₹159", rating:"4.9", img:"https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=200&q=80"},
+  {id:157,name:"Mutton Keema",            cat:"mutton", type:"nonveg", price:"₹119", rating:"4.7", img:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=80"},
+  {id:158,name:"Mutton Nalli",            cat:"mutton", type:"nonveg", price:"₹169", rating:"4.9", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:159,name:"Mutton Sukka",            cat:"mutton", type:"nonveg", price:"₹149", rating:"4.8", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:160,name:"Mutton Kolhapuri",        cat:"mutton", type:"nonveg", price:"₹155", rating:"4.9", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:161,name:"Mutton Handi",            cat:"mutton", type:"nonveg", price:"₹149", rating:"4.8", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:162,name:"Mutton Seekh Kabab",      cat:"mutton", type:"nonveg", price:"₹139", rating:"4.7", img:"https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=200&q=80"},
+  {id:163,name:"Mutton Dum Biryani",      cat:"mutton", type:"nonveg", price:"₹169", rating:"4.9", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200&q=80"},
+  {id:164,name:"Mutton Do Pyaza",         cat:"mutton", type:"nonveg", price:"₹145", rating:"4.7", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:165,name:"Mutton Soup",             cat:"mutton", type:"nonveg", price:"₹69",  rating:"4.6", img:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=200&q=80"},
+  {id:166,name:"Mutton Vindaloo",         cat:"mutton", type:"nonveg", price:"₹149", rating:"4.7", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:167,name:"Mutton Paya",             cat:"mutton", type:"nonveg", price:"₹139", rating:"4.8", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:168,name:"Mutton Brain Fry",        cat:"mutton", type:"nonveg", price:"₹139", rating:"4.7", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:169,name:"Mutton Shammi Kabab",     cat:"mutton", type:"nonveg", price:"₹119", rating:"4.7", img:"https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=200&q=80"},
+  {id:170,name:"Mutton Liver Fry",        cat:"mutton", type:"nonveg", price:"₹99",  rating:"4.6", img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=200&q=80"},
+  {id:171,name:"Mutton Aloo Gosht",       cat:"mutton", type:"nonveg", price:"₹145", rating:"4.8", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=80"},
+  {id:172,name:"Mutton Nihari",           cat:"mutton", type:"nonveg", price:"₹159", rating:"4.9", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+
+  // ── EGG DISHES (21 dishes) ──
+  {id:173,name:"Egg Bhurji",              cat:"egg", type:"nonveg", price:"₹39",  rating:"4.7", img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&q=80"},
+  {id:174,name:"Egg Bhurji Pav",          cat:"egg", type:"nonveg", price:"₹45",  rating:"4.7", img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&q=80"},
+  {id:175,name:"Egg Curry",               cat:"egg", type:"nonveg", price:"₹59",  rating:"4.6", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:176,name:"Egg Fried Rice",          cat:"egg", type:"nonveg", price:"₹59",  rating:"4.6", img:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=200&q=80"},
+  {id:177,name:"Plain Omelette",          cat:"egg", type:"nonveg", price:"₹25",  rating:"4.5", img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&q=80"},
+  {id:178,name:"Masala Omelette",         cat:"egg", type:"nonveg", price:"₹35",  rating:"4.6", img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&q=80"},
+  {id:179,name:"Boiled Egg (2 pcs)",      cat:"egg", type:"nonveg", price:"₹20",  rating:"4.4", img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&q=80"},
+  {id:180,name:"Egg Roll",                cat:"egg", type:"nonveg", price:"₹45",  rating:"4.6", img:"https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=200&q=80"},
+  {id:181,name:"Egg Biryani",             cat:"egg", type:"nonveg", price:"₹79",  rating:"4.7", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200&q=80"},
+  {id:182,name:"Egg Masala",              cat:"egg", type:"nonveg", price:"₹65",  rating:"4.7", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:183,name:"Egg Half Fry",            cat:"egg", type:"nonveg", price:"₹20",  rating:"4.5", img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&q=80"},
+  {id:184,name:"Egg Full Fry",            cat:"egg", type:"nonveg", price:"₹25",  rating:"4.5", img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&q=80"},
+  {id:185,name:"Egg Paratha",             cat:"egg", type:"nonveg", price:"₹45",  rating:"4.6", img:"https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=200&q=80"},
+  {id:186,name:"Egg Noodles",             cat:"egg", type:"nonveg", price:"₹65",  rating:"4.5", img:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=200&q=80"},
+  {id:187,name:"Egg Sandwich",            cat:"egg", type:"nonveg", price:"₹35",  rating:"4.5", img:"https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=200&q=80"},
+  {id:188,name:"Egg Shakshuka",           cat:"egg", type:"nonveg", price:"₹55",  rating:"4.6", img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&q=80"},
+  {id:189,name:"Egg Keema",               cat:"egg", type:"nonveg", price:"₹69",  rating:"4.6", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=80"},
+  {id:190,name:"Egg Dosa",                cat:"egg", type:"nonveg", price:"₹55",  rating:"4.6", img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&q=80"},
+  {id:191,name:"Scrambled Egg Toast",     cat:"egg", type:"nonveg", price:"₹40",  rating:"4.5", img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&q=80"},
+  {id:192,name:"Egg Thali",               cat:"egg", type:"nonveg", price:"₹89",  rating:"4.8", img:"https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=200&q=80"},
+  {id:193,name:"Double Egg Bhurji Pav",   cat:"egg", type:"nonveg", price:"₹65",  rating:"4.8", img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&q=80"},
+];
+
+let liked = new Set(JSON.parse(localStorage.getItem('js_liked')||'[]'));
+let currentCat = 'all';
+let vegFilter = null; // null=both, 'veg', 'nonveg'
+
+function saveLiked(){ localStorage.setItem('js_liked', JSON.stringify([...liked])); }
+
+function toggleSearch(){
+  const box = document.getElementById('srchBox');
+  box.classList.toggle('open');
+  if(box.classList.contains('open')) document.getElementById('searchInput').focus();
+}
+
+function setTab(el, cat){
+  document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  currentCat = cat;
+  renderGrid();
+}
+
+function toggleVeg(type){
+  const btn = document.getElementById(type+'Btn');
+  if(vegFilter === type){ vegFilter = null; btn.classList.remove('active'); }
+  else {
+    vegFilter = type;
+    document.querySelectorAll('.veg-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  renderGrid();
+}
+
+function toggleLike(id, e){
+  e.stopPropagation();
+  const btn = document.querySelector('.like-btn[data-id="'+id+'"]');
+  if(liked.has(id)){ liked.delete(id); btn.textContent='♡'; btn.classList.remove('liked'); }
+  else{ liked.add(id); btn.textContent='♥'; btn.classList.add('liked'); btn.classList.add('pop'); setTimeout(()=>btn.classList.remove('pop'),300); }
+  saveLiked();
+  renderLiked();
+}
+
+function renderLiked(){
+  const strip = document.getElementById('likedStrip');
+  const items = menu.filter(f=>liked.has(f.id));
+  if(!items.length){ strip.innerHTML='<div class="liked-empty">Tap ♡ on any dish to save here!</div>'; return; }
+  strip.innerHTML = items.map(f=>`
+    <div class="liked-chip">
+      <img src="${f.img}" alt="${f.name}">
+      ${f.name}
+    </div>`).join('');
+}
+
+function renderGrid(){
+  const q = (document.getElementById('searchInput')||{}).value||'';
+  let items = menu.filter(f=>{
+    const matchCat = currentCat==='all' || f.cat===currentCat;
+    const matchVeg = !vegFilter || f.type===vegFilter;
+    const matchQ = !q || f.name.toLowerCase().includes(q.toLowerCase());
+    return matchCat && matchVeg && matchQ;
+  });
+
+  const catNames = {all:'Our Specialities',maharashtrian:'🌾 Maharashtrian Dishes',north:'🍲 North Indian',snacks:'🥙 Snacks & Starters',rice:'🍛 Rice & Biryani',beverages:'☕ Beverages',desserts:'🍮 Sweets & Desserts',chicken:'🍗 Chicken Dishes',mutton:'🥩 Mutton Dishes',egg:'🥚 Egg Dishes'};
+  document.getElementById('gridTitle').textContent = catNames[currentCat]||'Menu';
+  document.getElementById('gridCount').textContent = items.length+' items';
+
+  if(!items.length){
+    document.getElementById('foodGrid').innerHTML='<div class="no-result"><span>😕</span>No dishes found!</div>';
+    return;
+  }
+
+  document.getElementById('foodGrid').innerHTML = items.map(f=>{
+    const qty = cart[f.id]||0;
+    const btn = qty===0
+      ? `<button class="add-btn" onclick="addToCart(${f.id},event)">+ Add</button>`
+      : `<div class="qty-stepper"><button onclick="removeFromCart(${f.id},event)">−</button><span>${qty}</span><button onclick="addToCart(${f.id},event)">+</button></div>`;
+    return `
+    <div class="food-card">
+      <div class="img-circle">
+        <img src="${f.img}" alt="${f.name}" loading="lazy" onerror="this.src='https://placehold.co/84x84/FFF3E8/FF6B00?text=${encodeURIComponent(f.name[0])}'">
+        <div class="type-dot ${f.type}"></div>
+        <button class="like-btn ${liked.has(f.id)?'liked':''}" data-id="${f.id}" onclick="toggleLike(${f.id},event)">${liked.has(f.id)?'♥':'♡'}</button>
+      </div>
+      <div class="food-name">${f.name}</div>
+      <div class="food-price">${f.price}</div>
+      <div class="food-rating">⭐ ${f.rating}</div>
+      <div data-card-id="${f.id}">${btn}</div>
+    </div>`;
+  }).join('');
+}
+
+// Attach tab events properly for mobile
+document.querySelectorAll('.cat-tab').forEach(function(tab){
+  tab.addEventListener('touchstart', function(e){ e.preventDefault(); setTab(this, this.dataset.cat); }, {passive:false});
+  tab.addEventListener('click', function(){ setTab(this, this.dataset.cat); });
+});
+
+// Attach veg toggle events
+document.getElementById('vegBtn').addEventListener('touchstart', function(e){ e.preventDefault(); toggleVeg('veg'); }, {passive:false});
+document.getElementById('vegBtn').addEventListener('click', function(){ toggleVeg('veg'); });
+document.getElementById('nonvegBtn').addEventListener('touchstart', function(e){ e.preventDefault(); toggleVeg('nonveg'); }, {passive:false});
+document.getElementById('nonvegBtn').addEventListener('click', function(){ toggleVeg('nonveg'); });
+
+// Search
+var si = document.getElementById('searchInput');
+if(si){ si.addEventListener('input', renderGrid); }
+
+
+
+/* ══════════════════════════════════════
+   CART  SYSTEM  (Zomato/Swiggy style)
+══════════════════════════════════════ */
+let cart = {};          // { id: qty }
+let coType = 'delivery'; // 'delivery' | 'pickup'
+
+/* ─ helpers ─ */
+function menuItem(id){ return menu.find(f=>f.id===parseInt(id)); }
+function cartCount(){ return Object.values(cart).reduce((a,b)=>a+b,0); }
+function cartSubtotal(){
+  return Object.entries(cart).reduce((s,[id,q])=>{
+    const it=menuItem(id); return s+(it?parseInt(it.price.replace('₹',''))*q:0);
+  },0);
+}
+function deliveryCharge(){ return coType==='delivery'?20:0; }
+function cartTotal(){ return cartSubtotal()+deliveryCharge(); }
+
+/* ─ update floating bar + badge ─ */
+function syncUI(){
+  // Show desktop cart button on large screens
+  const dcb = document.getElementById('desktopCartBtn');
+  if(dcb){
+    if(window.innerWidth>=900){ dcb.style.display='flex'; }
+    else{ dcb.style.display='none'; }
+    document.getElementById('desktopCartCount').textContent = cartCount();
+  }
+  const n=cartCount(), sub=cartSubtotal();
+  // badge
+  const b=document.getElementById('cartBadge');
+  if(b){b.textContent=n;b.classList.toggle('show',n>0);}
+  // floating bar
+  const fb=document.getElementById('floatingCart');
+  if(fb){
+    fb.classList.toggle('show',n>0);
+    document.getElementById('fcItems').textContent=n+' item'+(n!==1?'s':'');
+    document.getElementById('fcPrice').textContent='₹'+sub;
+  }
+}
+
+/* ─ add / remove ─ */
+function addToCart(id,e){
+  if(e)e.stopPropagation();
+  cart[id]=(cart[id]||0)+1;
+  syncUI(); refreshCardBtn(id);
+}
+function removeFromCart(id,e){
+  if(e)e.stopPropagation();
+  if(!cart[id])return;
+  cart[id]--;
+  if(cart[id]<=0)delete cart[id];
+  syncUI(); refreshCardBtn(id);
+}
+function refreshCardBtn(id){
+  const w=document.querySelector('[data-card-id="'+id+'"]');
+  if(!w)return;
+  const q=cart[id]||0;
+  w.innerHTML=q===0
+    ?'<button class="add-btn" onclick="addToCart('+id+',event)">+ Add</button>'
+    :'<div class="qty-stepper"><button onclick="removeFromCart('+id+',event)">−</button><span>'+q+'</span><button onclick="addToCart('+id+',event)">+</button></div>';
+}
+
+/* ─ CART DRAWER ─ */
+function openCart(){
+  renderCartBody();
+  document.getElementById('cartOverlay').classList.add('open');
+  document.getElementById('cartDrawer').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeCart(){
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.body.style.overflow='';
+}
+function renderCartBody(){
+  const body=document.getElementById('cartBody');
+  const foot=document.getElementById('cartFoot');
+  const items=Object.entries(cart)
+    .map(([id,q])=>({...menuItem(id),qty:q}))
+    .filter(f=>f.name);
+
+  if(!items.length){
+    body.innerHTML='<div class="cart-empty-box"><span class="cart-empty-icon">🛒</span><div class="cart-empty-title">Your Cart is Empty!</div><div class="cart-empty-sub">Add dishes from the menu 😋</div></div>';
+    foot.style.display='none';
+    return;
+  }
+
+  const sub=cartSubtotal();
+  body.innerHTML=
+    '<div class="cart-resto-tag"><span class="cart-resto-icon">🍛</span><span class="cart-resto-name">Patil &amp; Sons — Wagholi, Pune</span></div>'+
+    items.map(f=>`
+      <div class="cart-item-row">
+        <div class="ci-dot ${f.type}"></div>
+        <div class="ci-info">
+          <div class="ci-name">${f.name}</div>
+          <div class="ci-price">₹${parseInt(f.price.replace('₹',''))} × ${f.qty} = ₹${parseInt(f.price.replace('₹',''))*f.qty}</div>
+        </div>
+        <div class="ci-stepper">
+          <button onclick="removeFromCart(${f.id});renderCartBody()">−</button>
+          <span>${f.qty}</span>
+          <button onclick="addToCart(${f.id});renderCartBody()">+</button>
+        </div>
+      </div>`).join('')+
+    `<div class="cart-bill">
+      <div class="cart-bill-title">Bill Details</div>
+      <div class="bill-row"><span>Item Total</span><span>₹${sub}</span></div>
+      <div class="bill-row"><span>Delivery Charge</span><span>₹20</span></div>
+      <div class="bill-row"><span>Taxes & Charges</span><span>Included</span></div>
+      <div class="bill-row total"><span>To Pay</span><span>₹${sub+20}</span></div>
+    </div>`;
+
+  foot.style.display='block';
+  foot.innerHTML=`
+    <button class="cart-checkout-btn" onclick="goCheckout()">
+      <div class="cob-left">
+        <span class="cob-badge">${cartCount()} items</span>
+        Proceed to Checkout
+      </div>
+      <span class="cob-right">₹${sub+20} →</span>
+    </button>`;
+}
+function goCheckout(){
+  closeCart();
+  setTimeout(openCheckout,180);
+}
+
+/* ─ CHECKOUT ─ */
+function buildWALink(){
+  const items = Object.entries(cart).map(([id,q])=>{
+    const it=menuItem(id); return it?`${it.name} x${q} (${it.price})`:null;
+  }).filter(Boolean);
+  const total = cartTotal();
+  const msg = `Hello Patil & Sons! 🍛%0AOrder:%0A${items.map(i=>encodeURIComponent(i)).join('%0A')}%0A%0ATotal: ₹${total}%0A%0APlease confirm my order!`;
+  const btn = document.getElementById('waOrderBtn');
+  if(btn) btn.href = `https://wa.me/917499225827?text=${msg}`;
+}
+function openCheckout(){
+  renderCoSummary();
+  buildWALink();
+  document.getElementById('checkoutOverlay').classList.add('open');
+  document.getElementById('checkoutSheet').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeCheckout(){
+  document.getElementById('checkoutOverlay').classList.remove('open');
+  document.getElementById('checkoutSheet').classList.remove('open');
+  document.body.style.overflow='';
+}
+function selectOT(type){
+  coType=type;
+  document.getElementById('otDelivery').classList.toggle('active',type==='delivery');
+  document.getElementById('otPickup').classList.toggle('active',type==='pickup');
+  document.getElementById('coAddressWrap').style.display=type==='delivery'?'block':'none';
+  renderCoSummary();
+}
+function renderCoSummary(){
+  const items=Object.entries(cart).map(([id,q])=>({...menuItem(id),qty:q})).filter(f=>f.name);
+  const sub=cartSubtotal(), dc=deliveryCharge(), total=sub+dc;
+  document.getElementById('coSummary').innerHTML=
+    items.map(f=>`<div class="co-sum-item"><span>${f.name} <span class="tag">×${f.qty}</span></span><span>₹${parseInt(f.price.replace('₹',''))*f.qty}</span></div>`).join('')+
+    (dc?`<div class="co-sum-item"><span>🛵 Delivery</span><span>₹${dc}</span></div>`:'')+
+    `<div class="co-sum-item"><span>Total Payable</span><span>₹${total}</span></div>`;
+}
+function placeOrder(){
+  const name=document.getElementById('coName').value.trim();
+  const phone=document.getElementById('coPhone').value.trim();
+  const addr=coType==='delivery'?document.getElementById('coAddress').value.trim():'Pickup';
+  if(!name){alert('Please enter your name!');document.getElementById('coName').focus();return;}
+  if(phone.length<8){alert('Please enter a valid mobile number!');document.getElementById('coPhone').focus();return;}
+  if(coType==='delivery'&&!addr){alert('Please enter your delivery address!');document.getElementById('coAddress').focus();return;}
+
+  const oid='JAS-'+Date.now().toString().slice(-6);
+  const total=cartTotal();
+  closeCheckout();
+
+  document.getElementById('scOrderId').textContent='Order #'+oid;
+  document.getElementById('scSub').innerHTML=
+    '<strong>'+name+'</strong> , your order is confirmed!<br>'+
+    (coType==='delivery'?'🛵 Delivery: <strong>'+addr+'</strong>':'🏃 Pickup from restaurant')+'<br>'+
+    '📞 We will call you: <strong>'+phone+'</strong>';
+  document.getElementById('scInfoRow').innerHTML=
+    '<div class="sc-info-chip"><strong>₹'+total+'</strong>Total Amount</div>'+
+    '<div class="sc-info-chip"><strong>'+(coType==='delivery'?'30-45 min':'15 min')+'</strong>'+(coType==='delivery'?'Delivery Time':'Ready in')+'</div>'+
+    '<div class="sc-info-chip"><strong>'+oid+'</strong>Order ID</div>';
+
+  // Save to user profile DB
+  const orderItems = Object.entries(cart).map(([id,q])=>({...menuItem(id),qty:q})).filter(f=>f.name);
+  saveOrderToProfile(oid, total, orderItems);
+  document.getElementById('successOverlay').classList.add('open');
+  cart={};syncUI();renderGrid();
+}
+function closeSuccess(){
+  document.getElementById('successOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+/* ─ Wire up all events on DOMContentLoaded ─ */
+document.addEventListener('DOMContentLoaded',function(){
+  // cart overlay close
+  document.getElementById('cartOverlay').addEventListener('click',closeCart);
+  document.getElementById('cartCloseBtn').addEventListener('click',closeCart);
+  // checkout overlay close
+  document.getElementById('checkoutOverlay').addEventListener('click',closeCheckout);
+  document.getElementById('coCloseBtn').addEventListener('click',closeCheckout);
+  // floating cart
+  document.getElementById('fcBtn').addEventListener('click',openCart);
+  document.getElementById('floatingCart').addEventListener('click',openCart);
+  // order type cards
+  document.getElementById('otDelivery').addEventListener('click',function(){selectOT('delivery');});
+  document.getElementById('otPickup').addEventListener('click',function(){selectOT('pickup');});
+  // place order
+  document.getElementById('coPlaceBtn').addEventListener('click',placeOrder);
+  // success close
+  document.getElementById('scCloseBtn').addEventListener('click',closeSuccess);
+});
+
+
+/* ══════════════════════════════════════
+   PAYMENT  SYSTEM
+══════════════════════════════════════ */
+let selectedPayMethod = 'cod';
+let selectedUPIApp = null;
+
+function selectPayMethod(method){
+  selectedPayMethod = method;
+  // deselect all
+  document.querySelectorAll('.pay-method-row').forEach(r=>r.classList.remove('selected'));
+  // select clicked
+  const el = document.getElementById('pm-'+method);
+  if(el) el.classList.add('selected');
+  // show/hide UPI input
+  document.getElementById('upiInputWrap').classList.toggle('show', method==='upiid');
+  // show/hide card form
+  document.getElementById('cardForm').classList.toggle('show', method==='card');
+}
+
+function selectUPIApp(el, app){
+  selectedUPIApp = app;
+  selectedPayMethod = 'upi-app';
+  document.querySelectorAll('.upi-app').forEach(a=>a.classList.remove('selected'));
+  el.classList.add('selected');
+  document.querySelectorAll('.pay-method-row').forEach(r=>r.classList.remove('selected'));
+  document.getElementById('upiInputWrap').classList.remove('show');
+  document.getElementById('cardForm').classList.remove('show');
+}
+
+function openPayment(){
+  const total = cartTotal();
+  document.getElementById('payAmountVal').textContent = '₹'+total;
+  document.getElementById('payNowAmt').textContent = '₹'+total;
+  document.getElementById('payOverlay').classList.add('open');
+  document.getElementById('paySheet').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePayment(){
+  document.getElementById('payOverlay').classList.remove('open');
+  document.getElementById('paySheet').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function doPayAndOrder(){
+  // Validate payment selection
+  if(selectedPayMethod==='upiid'){
+    const upiVal = document.getElementById('upiIdInput').value.trim();
+    if(!upiVal || !upiVal.includes('@')){alert('Please enter a valid UPI ID (eg: name@okaxis)');return;}
+  }
+
+  const methodLabels = {
+    'cod':'Cash on Delivery','card':'Credit/Debit Card',
+    'upiid':'UPI ID','sbi':'SBI Net Banking','hdfc':'HDFC Net Banking',
+    'icici':'ICICI Net Banking','other-bank':'Net Banking','paytm':'Paytm Wallet',
+    'amazon':'Amazon Pay','mobikwik':'MobiKwik','upi-app':selectedUPIApp+' UPI'
+  };
+  const payLabel = methodLabels[selectedPayMethod]||'Online Payment';
+
+  // Get checkout details
+  const name = document.getElementById('coName').value.trim()||'Customer';
+  const phone = document.getElementById('coPhone').value.trim();
+  const addr = coType==='delivery'?document.getElementById('coAddress').value.trim():'Pickup';
+  const total = cartTotal();
+  const oid = 'JAS-'+Date.now().toString().slice(-6);
+
+  closePayment();
+
+  // Show success
+  document.getElementById('scOrderId').textContent = 'Order #'+oid;
+  document.getElementById('scSub').innerHTML =
+    '<strong>'+name+'</strong>, your order is confirmed!<br>'+
+    (coType==='delivery'?'🛵 Delivery to: <strong>'+addr+'</strong>':'🏃 Pickup from restaurant')+'<br>'+
+    '💳 Payment: <strong>'+payLabel+'</strong>';
+  document.getElementById('scInfoRow').innerHTML =
+    '<div class="sc-info-chip"><strong>₹'+total+'</strong>Total Paid</div>'+
+    '<div class="sc-info-chip"><strong>'+(coType==='delivery'?'30–45 min':'15 min')+'</strong>'+(coType==='delivery'?'Delivery':'Ready in')+'</div>'+
+    '<div class="sc-info-chip"><strong>'+oid+'</strong>Order ID</div>';
+
+  document.getElementById('successOverlay').classList.add('open');
+  cart={};syncUI();renderGrid();
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  // Payment sheet events
+  document.getElementById('payOverlay').addEventListener('click',closePayment);
+  document.getElementById('payCloseBtn').addEventListener('click',closePayment);
+  document.getElementById('payBackBtn').addEventListener('click',function(){ closePayment(); setTimeout(openCheckout,180); });
+  document.getElementById('payNowBtn').addEventListener('click',doPayAndOrder);
+});
+
+function renderSidebar(){
+  const sidebar = document.getElementById('sidebarCats');
+  if(!sidebar) return;
+  const cats = [
+    {id:'all',label:'🍽️ All Items'},
+    {id:'maharashtrian',label:'🌾 Maharashtrian'},
+    {id:'north',label:'🍲 North Indian'},
+    {id:'snacks',label:'🥙 Snacks & Starters'},
+    {id:'rice',label:'🍛 Rice & Biryani'},
+    {id:'beverages',label:'☕ Beverages'},
+    {id:'desserts',label:'🍮 Sweets & Desserts'},
+    {id:'chicken',label:'🍗 Chicken'},
+    {id:'mutton',label:'🥩 Mutton'},
+    {id:'egg',label:'🥚 Egg Dishes'},
+  ];
+  sidebar.innerHTML = cats.map(c=>`
+    <div class="sidebar-cat-item ${c.id===currentCat?'active':''}" onclick="setSidebarCat('${c.id}')">${c.label}</div>
+  `).join('');
+}
+function setSidebarCat(cat){
+  currentCat = cat;
+  renderSidebar();
+  // also update top tabs
+  document.querySelectorAll('.cat-tab').forEach(t=>{
+    t.classList.toggle('active', t.dataset.cat===cat);
+  });
+  renderGrid();
+}
+window.addEventListener('resize', function(){
+  const dcb = document.getElementById('desktopCartBtn');
+  if(dcb){ dcb.style.display = window.innerWidth>=900?'flex':'none'; }
+});
+
+
+
+/* ══════════════════════════════════════
+   USER AUTH + PROFILE SYSTEM
+   Backend: Python Flask  |  DB: SQLite
+   API: http://localhost:5000/api
+══════════════════════════════════════ */
+
+const API = 'http://localhost:5000/api';
+
+// ─ Token storage ─
+function getToken(){ return localStorage.getItem('jas_token')||''; }
+function setToken(t){ localStorage.setItem('jas_token', t); }
+function clearToken(){ localStorage.removeItem('jas_token'); localStorage.removeItem('jas_user'); }
+function setUser(u){ localStorage.setItem('jas_user', JSON.stringify(u)); }
+function getUser(){ try{ return JSON.parse(localStorage.getItem('jas_user')||'null'); }catch{ return null; } }
+
+// ─ API helper ─
+async function apiCall(path, method='GET', body=null, auth=true){
+  const headers = { 'Content-Type': 'application/json' };
+  if(auth && getToken()) headers['Authorization'] = 'Bearer ' + getToken();
+  const opts = { method, headers };
+  if(body) opts.body = JSON.stringify(body);
+  try {
+    const res = await fetch(API + path, opts);
+    const data = await res.json();
+    return data;
+  } catch(e) {
+    // Fallback to localStorage if server not running
+    return { success: false, message: 'Server not reachable. Using offline mode.', offline: true };
+  }
+}
+
+// ─ Update profile button UI ─
+function updateProfileBtn(){
+  const u = getUser();
+  const btn = document.getElementById('profileTopBtn');
+  const navIcon = document.getElementById('navProfileIcon');
+  if(u){
+    if(btn){ btn.textContent = u.name.charAt(0).toUpperCase(); btn.classList.add('logged-in'); }
+    if(navIcon){ navIcon.textContent = '😊'; }
+  } else {
+    if(btn){ btn.textContent = '👤'; btn.classList.remove('logged-in'); }
+    if(navIcon){ navIcon.textContent = '👤'; }
+  }
+}
+
+function openProfileOrAuth(){
+  if(getUser()) openProfile();
+  else openAuth();
+}
+
+// ── AUTH ──
+function openAuth(){
+  document.getElementById('authOverlay').classList.add('open');
+  document.getElementById('authSheet').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeAuth(){
+  document.getElementById('authOverlay').classList.remove('open');
+  document.getElementById('authSheet').classList.remove('open');
+  document.body.style.overflow='';
+}
+function switchAuthTab(tab){
+  document.getElementById('loginTabBtn').classList.toggle('active', tab==='login');
+  document.getElementById('signupTabBtn').classList.toggle('active', tab==='signup');
+  document.getElementById('loginForm').style.display = tab==='login'?'block':'none';
+  document.getElementById('signupForm').style.display = tab==='signup'?'block':'none';
+  document.getElementById('authError').classList.remove('show');
+}
+function showAuthError(msg){
+  const el = document.getElementById('authError');
+  el.textContent = msg; el.classList.add('show');
+}
+function setAuthLoading(btn, loading){
+  btn.disabled = loading;
+  btn.textContent = loading ? 'Please wait...' : btn.dataset.label;
+}
+
+async function doLogin(){
+  const phone = document.getElementById('loginPhone').value.trim();
+  const pass  = document.getElementById('loginPass').value.trim();
+  if(!phone){ showAuthError('Please enter your mobile number'); return; }
+  if(!pass){ showAuthError('Please enter your password'); return; }
+
+  const btn = document.querySelector('#loginForm .auth-submit-btn');
+  btn.textContent = 'Logging in...'; btn.disabled = true;
+
+  const res = await apiCall('/login', 'POST', { phone, password: pass }, false);
+
+  btn.textContent = 'Login to My Account →'; btn.disabled = false;
+
+  if(res.offline){
+    // offline fallback - check localStorage users
+    const users = JSON.parse(localStorage.getItem('jas_offline_users')||'[]');
+    const u = users.find(x=>x.phone===phone && x.password===btoa(pass));
+    if(!u){ showAuthError('❌ Invalid mobile or password'); return; }
+    setUser(u); setToken('offline_'+u.id);
+    closeAuth(); updateProfileBtn(); showToast('Welcome back, '+u.name+'! 🎉');
+    return;
+  }
+  if(!res.success){ showAuthError('❌ ' + res.message); return; }
+
+  setToken(res.token);
+  setUser(res.user);
+  closeAuth(); updateProfileBtn();
+  showToast('Welcome back, ' + res.user.name + '! 🎉');
+}
+
+async function doSignup(){
+  const name    = document.getElementById('signupName').value.trim();
+  const phone   = document.getElementById('signupPhone').value.trim();
+  const email   = document.getElementById('signupEmail').value.trim();
+  const address = document.getElementById('signupAddress').value.trim();
+  const pass    = document.getElementById('signupPass').value.trim();
+
+  if(!name){ showAuthError('Please enter your name'); return; }
+  if(phone.length<10){ showAuthError('Please enter a valid mobile number'); return; }
+  if(pass.length<6){ showAuthError('Password must be at least 6 characters'); return; }
+
+  const btn = document.querySelector('#signupForm .auth-submit-btn');
+  btn.textContent = 'Creating account...'; btn.disabled = true;
+
+  const res = await apiCall('/signup', 'POST', { name, phone, email, address, password: pass }, false);
+
+  btn.textContent = 'Create My Account 🎉'; btn.disabled = false;
+
+  if(res.offline){
+    // offline fallback
+    const users = JSON.parse(localStorage.getItem('jas_offline_users')||'[]');
+    if(users.find(x=>x.phone===phone)){ showAuthError('❌ Mobile already registered'); return; }
+    const u = { id: Date.now(), name, phone, email, address, password: btoa(pass), joined_on: new Date().toLocaleDateString('en-IN'), total_orders: 0 };
+    users.push(u); localStorage.setItem('jas_offline_users', JSON.stringify(users));
+    setUser(u); setToken('offline_'+u.id);
+    closeAuth(); updateProfileBtn(); showToast('Welcome, '+name+'! Account created 🎉');
+    return;
+  }
+  if(!res.success){ showAuthError('❌ ' + res.message); return; }
+
+  setToken(res.token); setUser(res.user);
+  closeAuth(); updateProfileBtn();
+  showToast('Welcome, ' + res.user.name + '! Account created 🎉');
+}
+
+// ── PROFILE ──
+async function openProfile(){
+  renderProfile(getUser(), []);   // render immediately with cached data
+  document.getElementById('profileOverlay').classList.add('open');
+  document.getElementById('profileSheet').classList.add('open');
+  document.body.style.overflow='hidden';
+  // Then fetch fresh data from API
+  const res = await apiCall('/me');
+  if(res.success){
+    setUser(res.user);
+    updateProfileBtn();
+  }
+  const ordRes = await apiCall('/orders');
+  renderProfile(getUser(), ordRes.success ? ordRes.orders : []);
+}
+function closeProfile(){
+  document.getElementById('profileOverlay').classList.remove('open');
+  document.getElementById('profileSheet').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function renderProfile(u, orders){
+  if(!u){ closeProfile(); openAuth(); return; }
+  const scroll = document.getElementById('profileScrollContent');
+  scroll.innerHTML = `
+    <div class="profile-hero">
+      <div class="profile-avatar">${u.name.charAt(0).toUpperCase()}</div>
+      <div class="profile-hero-info">
+        <div class="profile-hero-name">${u.name}</div>
+        <div class="profile-hero-phone">📱 ${u.phone}</div>
+        <div class="profile-hero-badge">🍛 ${u.total_orders||0} Orders Placed</div>
+      </div>
+    </div>
+
+    <div class="profile-section">
+      <div class="profile-section-title">Personal Information</div>
+      <div class="profile-info-card">
+        <div class="profile-info-row">
+          <div class="profile-info-icon">👤</div>
+          <div style="flex:1;"><div class="profile-info-label">Full Name</div><div class="profile-info-val">${u.name}</div></div>
+          <button class="profile-edit-btn" onclick="toggleEditForm()">Edit</button>
+        </div>
+        <div class="profile-info-row">
+          <div class="profile-info-icon">📱</div>
+          <div style="flex:1;"><div class="profile-info-label">Mobile</div><div class="profile-info-val">${u.phone}</div></div>
+        </div>
+        <div class="profile-info-row">
+          <div class="profile-info-icon">✉️</div>
+          <div style="flex:1;"><div class="profile-info-label">Email</div><div class="profile-info-val">${u.email||'Not added'}</div></div>
+        </div>
+        <div class="profile-info-row">
+          <div class="profile-info-icon">📅</div>
+          <div style="flex:1;"><div class="profile-info-label">Member Since</div><div class="profile-info-val">${u.joined_on||'—'}</div></div>
+        </div>
+      </div>
+
+      <div class="edit-form" id="editForm">
+        <div class="auth-field" style="margin-bottom:10px;"><label style="font-size:.75rem;font-weight:700;display:block;margin-bottom:5px;">Full Name</label><input class="auth-input" id="editName" value="${u.name}" type="text"></div>
+        <div class="auth-field" style="margin-bottom:10px;"><label style="font-size:.75rem;font-weight:700;display:block;margin-bottom:5px;">Email</label><input class="auth-input" id="editEmail" value="${u.email||''}" type="email" placeholder="your@email.com"></div>
+        <div class="auth-field" style="margin-bottom:10px;"><label style="font-size:.75rem;font-weight:700;display:block;margin-bottom:5px;">Default Address</label><input class="auth-input" id="editAddress" value="${u.address||''}" type="text" placeholder="Home address"></div>
+        <div class="auth-field" style="margin-bottom:10px;"><label style="font-size:.75rem;font-weight:700;display:block;margin-bottom:5px;">New Password (leave blank to keep)</label><input class="auth-input" id="editNewPass" type="password" placeholder="New password"></div>
+        <button class="edit-save-btn" onclick="saveProfile()">💾 Save Changes</button>
+      </div>
+    </div>
+
+    <div class="profile-section">
+      <div class="profile-section-title">📍 Saved Address</div>
+      <div class="profile-info-card">
+        <div class="profile-info-row" style="border-bottom:none;padding:0;">
+          <div class="profile-info-icon">🏠</div>
+          <div style="flex:1;"><div class="profile-info-label">Home</div><div class="profile-info-val">${u.address||'No address saved'}</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-section">
+      <div class="profile-section-title">📦 Order History (${orders.length})</div>
+      ${orders.length===0
+        ? '<div style="text-align:center;padding:28px;color:#aaa;font-size:.85rem;">No orders yet.<br>Order something delicious! 🍛</div>'
+        : orders.map(o=>{
+            const items = Array.isArray(o.items) ? o.items.map(i=>i.name+' x'+i.qty).join(', ') : o.items;
+            const statusClass = o.status==='delivered'?'delivered':'processing';
+            const statusLabel = o.status==='delivered'?'✅ Delivered':o.status==='preparing'?'🔥 Preparing':'📋 Placed';
+            return `<div class="order-card">
+              <div class="order-card-head"><span class="order-card-id">#${o.order_code}</span><span class="order-card-date">${(o.created_at||'').slice(0,16)}</span></div>
+              <div class="order-card-items">${items}</div>
+              <div class="order-card-footer"><span class="order-card-total">₹${o.total}</span><span class="order-card-status ${statusClass}">${statusLabel}</span></div>
+            </div>`;
+          }).join('')
+      }
+    </div>
+
+    <button class="logout-btn" onclick="doLogout()">🚪 Logout</button>
+  `;
+}
+
+function toggleEditForm(){
+  const f = document.getElementById('editForm');
+  if(f) f.classList.toggle('show');
+}
+
+async function saveProfile(){
+  const u = getUser();
+  if(!u) return;
+  const name    = document.getElementById('editName').value.trim()||u.name;
+  const email   = document.getElementById('editEmail').value.trim();
+  const address = document.getElementById('editAddress').value.trim();
+  const newPass = document.getElementById('editNewPass').value.trim();
+
+  const btn = document.querySelector('.edit-save-btn');
+  btn.textContent='Saving...'; btn.disabled=true;
+
+  const res = await apiCall('/profile', 'PUT', { name, email, address });
+  if(res.success){ setUser(res.user); }
+  else { // offline
+    u.name=name; u.email=email; u.address=address; setUser(u);
+  }
+
+  if(newPass && newPass.length>=6){
+    const oldPass = prompt('Enter current password to confirm:');
+    if(oldPass){
+      const pRes = await apiCall('/change-password','PUT',{old_password:oldPass, new_password:newPass});
+      showToast(pRes.success ? '🔒 Password changed!' : '❌ ' + pRes.message);
+    }
+  }
+
+  btn.textContent='💾 Save Changes'; btn.disabled=false;
+  updateProfileBtn();
+  openProfile();
+  showToast('Profile updated! ✅');
+}
+
+async function doLogout(){
+  await apiCall('/logout','POST');
+  clearToken();
+  closeProfile();
+  updateProfileBtn();
+  showToast('Logged out successfully!');
+}
+
+// Save order to backend after placing
+async function saveOrderToProfile(orderId, total, items){
+  const u = getUser();
+  const coName  = document.getElementById('coName').value.trim();
+  const coPhone = document.getElementById('coPhone').value.trim();
+  const coAddr  = coType==='delivery' ? (document.getElementById('coAddress').value.trim()) : '';
+  const coNote  = document.getElementById('coNote').value.trim();
+
+  const orderBody = {
+    customer_name:  coName,
+    phone:          coPhone,
+    address:        coAddr,
+    order_type:     coType,
+    items:          items.map(i=>({ id:i.id, name:i.name, price:i.price, qty:i.qty })),
+    payment_method: selectedPayMethod,
+    notes:          coNote
+  };
+  await apiCall('/orders','POST', orderBody);
+
+  // Update cached user order count
+  if(u){ u.total_orders=(u.total_orders||0)+1; setUser(u); }
+}
+
+// Toast
+function showToast(msg){
+  let t=document.getElementById('toast');
+  if(!t){
+    t=document.createElement('div');
+    t.id='toast';
+    t.style.cssText='position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#1c1c1c;color:#fff;padding:11px 22px;border-radius:30px;font-size:0.82rem;font-weight:600;z-index:9999;opacity:0;transition:opacity .25s;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,.25);';
+    document.body.appendChild(t);
+  }
+  t.textContent=msg; t.style.opacity='1';
+  clearTimeout(t._timer);
+  t._timer=setTimeout(()=>{t.style.opacity='0';},2600);
+}
+
+// Wire events
+document.addEventListener('DOMContentLoaded',function(){
+  document.getElementById('authOverlay').addEventListener('click',closeAuth);
+  document.getElementById('authCloseBtn').addEventListener('click',closeAuth);
+  document.getElementById('profileOverlay').addEventListener('click',closeProfile);
+  document.getElementById('profileCloseBtn').addEventListener('click',closeProfile);
+  updateProfileBtn();
+});
+
+
+/* ══════════════════════════════════════
+   ADMIN PANEL SYSTEM
+══════════════════════════════════════ */
+
+// ── DB helpers ──
+function getAdminPass(){ return localStorage.getItem('pas_admin_pass')||'patil2024'; }
+function setAdminPass(p){ localStorage.setItem('pas_admin_pass',p); }
+function isAdminLoggedIn(){ return sessionStorage.getItem('jas_admin_auth')==='1'; }
+function setAdminLoggedIn(){ sessionStorage.setItem('jas_admin_auth','1'); }
+function adminLogout(){ sessionStorage.removeItem('jas_admin_auth'); showAdminLogin(); }
+
+// Custom dishes stored in localStorage
+function getCustomDishes(){ try{ return JSON.parse(localStorage.getItem('jas_dishes')||'null'); }catch{ return null; } }
+function saveCustomDishes(d){ localStorage.setItem('jas_dishes', JSON.stringify(d)); }
+
+// Merge built-in menu with custom dishes
+function getMergedMenu(){
+  const custom = getCustomDishes();
+  if(!custom) return menu; // first time — use default menu
+  return custom;
+}
+
+// ── Open / Close admin ──
+function openAdmin(){
+  document.getElementById('adminOverlay').classList.add('open');
+  document.getElementById('adminSheet').classList.add('open');
+  document.body.style.overflow='hidden';
+  if(isAdminLoggedIn()) showAdminMain();
+  else showAdminLogin();
+}
+function closeAdmin(){
+  document.getElementById('adminOverlay').classList.remove('open');
+  document.getElementById('adminSheet').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function showAdminLogin(){
+  document.getElementById('adminLoginScreen').style.display='flex';
+  document.getElementById('adminMainScreen').style.display='none';
+}
+function showAdminMain(){
+  document.getElementById('adminLoginScreen').style.display='none';
+  document.getElementById('adminMainScreen').style.display='flex';
+  renderAdminDashboard();
+  renderAdminFilterRow();
+  renderAdminDishes();
+}
+
+// ── Auth ──
+function checkAdminPass(){
+  const val = document.getElementById('adminPassInput').value;
+  const err = document.getElementById('adminLoginError');
+  if(val === getAdminPass()){
+    setAdminLoggedIn();
+    err.classList.remove('show');
+    document.getElementById('adminPassInput').value='';
+    showAdminMain();
+  } else {
+    err.textContent = '❌ Wrong password. Try again.';
+    err.classList.add('show');
+  }
+}
+function changeAdminPass(){
+  const np = document.getElementById('newPassInput').value.trim();
+  if(np.length < 4){ showAdminToast('❌ Password too short!'); return; }
+  setAdminPass(np);
+  document.getElementById('newPassInput').value='';
+  showAdminToast('✅ Password changed!');
+}
+
+// ── Tabs ──
+function switchAdminTab(n){
+  [1,2,3].forEach(i=>{
+    document.getElementById('aTab'+i).classList.toggle('active',i===n);
+    document.getElementById('adminTab'+i).style.display = i===n ? 'block' : 'none';
+  });
+  document.getElementById('adminScroll').scrollTop=0;
+}
+
+// ── Dashboard ──
+function renderAdminDashboard(){
+  const m = getMergedMenu();
+  const orders = JSON.parse(localStorage.getItem('jas_all_orders')||'[]');
+  const totalRev = orders.reduce((s,o)=>s+(o.total||0),0);
+
+  document.getElementById('adminStats').innerHTML = `
+    <div class="stat-card">
+      <div class="stat-val">${m.length}</div>
+      <div class="stat-label">Total Dishes</div>
+    </div>
+    <div class="stat-card green">
+      <div class="stat-val">${m.filter(f=>f.type==='veg').length}</div>
+      <div class="stat-label">Veg Dishes</div>
+    </div>
+    <div class="stat-card blue">
+      <div class="stat-val">${orders.length}</div>
+      <div class="stat-label">Total Orders</div>
+    </div>
+    <div class="stat-card red">
+      <div class="stat-val">₹${totalRev}</div>
+      <div class="stat-label">Revenue</div>
+    </div>`;
+
+  // Recent orders
+  const ro = document.getElementById('adminRecentOrders');
+  if(!orders.length){ ro.innerHTML='<div style="text-align:center;color:#aaa;padding:16px;font-size:.82rem;">No orders yet</div>'; return; }
+  ro.innerHTML = orders.slice(0,5).map(o=>`
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f5f5f5;">
+      <div>
+        <div style="font-size:.82rem;font-weight:700;">${o.customer_name||o.name||'Customer'}</div>
+        <div style="font-size:.7rem;color:#888;">${o.order_code||'—'} · ${(o.created_at||'').slice(0,16)}</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:.85rem;font-weight:800;color:var(--saffron);">₹${o.total||0}</div>
+        <div style="font-size:.65rem;color:#1B8A3C;font-weight:700;">${o.status||'placed'}</div>
+      </div>
+    </div>`).join('');
+}
+
+// ── Filter row ──
+const catLabels = {all:'All',maharashtrian:'🌾 Maha',north:'🍲 North',snacks:'🥙 Snacks',rice:'🍛 Rice',beverages:'☕ Drinks',desserts:'🍮 Sweets',chicken:'🍗 Chicken',mutton:'🥩 Mutton',egg:'🥚 Egg'};
+let adminCatFilter = 'all';
+function renderAdminFilterRow(){
+  const row = document.getElementById('adminFilterRow');
+  row.innerHTML = Object.entries(catLabels).map(([k,v])=>`
+    <div class="admin-filter-pill ${k===adminCatFilter?'active':''}" onclick="setAdminCat('${k}')">${v}</div>`).join('');
+}
+function setAdminCat(cat){ adminCatFilter=cat; renderAdminFilterRow(); renderAdminDishes(); }
+
+// ── Dish list ──
+function renderAdminDishes(){
+  const q = (document.getElementById('adminSearchDish')||{}).value||'';
+  const allDishes = getMergedMenu();
+  const filtered = allDishes.filter(f=>{
+    const matchCat = adminCatFilter==='all' || f.cat===adminCatFilter;
+    const matchQ = !q || f.name.toLowerCase().includes(q.toLowerCase());
+    return matchCat && matchQ;
+  });
+
+  const list = document.getElementById('adminDishList');
+  if(!filtered.length){ list.innerHTML='<div style="text-align:center;padding:24px;color:#aaa;">No dishes found</div>'; return; }
+
+  list.innerHTML = filtered.map(f=>`
+    <div class="admin-dish-item">
+      ${f.img && f.img.startsWith('data:')
+        ? `<img class="admin-dish-img" src="${f.img}" alt="${f.name}">`
+        : f.img
+          ? `<img class="admin-dish-img" src="${f.img}" alt="${f.name}" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="admin-dish-img-placeholder" style="display:none;">🍽️</div>`
+          : `<div class="admin-dish-img-placeholder">🍽️</div>`
+      }
+      <div class="admin-dish-info">
+        <div class="admin-dish-name">${f.name}</div>
+        <div class="admin-dish-meta">
+          <span class="admin-type-dot" style="background:${f.type==='veg'?'#1B8A3C':'#E53935'}"></span>
+          <span class="admin-dish-price">${f.price}</span>
+          <span class="cat-badge">${catLabels[f.cat]||f.cat}</span>
+        </div>
+      </div>
+      <div class="admin-dish-actions">
+        <button class="admin-action-btn admin-edit-btn" onclick="editDish(${f.id})" title="Edit">✏️</button>
+        <button class="admin-action-btn admin-del-btn" onclick="deleteDish(${f.id})" title="Delete">🗑️</button>
+      </div>
+    </div>`).join('');
+}
+
+// ── Image upload ──
+function handleDishImg(input){
+  const file = input.files[0];
+  if(!file) return;
+  // Check size — max 2MB
+  if(file.size > 2*1024*1024){ showAdminToast('❌ Image too large! Max 2MB'); return; }
+  const reader = new FileReader();
+  reader.onload = function(e){
+    const data = e.target.result;
+    document.getElementById('dishImgData').value = data;
+    const wrap = document.getElementById('imgUploadWrap');
+    wrap.classList.add('has-img');
+    wrap.innerHTML = `<img class="img-preview" src="${data}"><div class="img-upload-text" style="font-size:.72rem;"><span>✅ Photo uploaded!</span> Tap to change</div>`;
+    wrap.onclick = ()=>document.getElementById('dishImgInput').click();
+  };
+  reader.readAsDataURL(file);
+}
+
+// ── Save dish ──
+function saveDish(){
+  const name    = document.getElementById('dishName').value.trim();
+  const cat     = document.getElementById('dishCat').value;
+  const type    = document.getElementById('dishType').value;
+  const price   = document.getElementById('dishPrice').value.trim();
+  const rating  = document.getElementById('dishRating').value.trim() || '4.5';
+  const imgData = document.getElementById('dishImgData').value;
+  const editId  = document.getElementById('editDishId').value;
+
+  if(!name){ showAdminToast('❌ Please enter dish name!'); return; }
+  if(!price){ showAdminToast('❌ Please enter price!'); return; }
+
+  let dishes = getMergedMenu().slice(); // copy
+
+  if(editId){
+    // Edit existing
+    const idx = dishes.findIndex(d=>d.id===parseInt(editId));
+    if(idx!==-1){
+      dishes[idx] = {
+        ...dishes[idx], name,cat,type,
+        price:'₹'+price, rating,
+        img: imgData || dishes[idx].img || ''
+      };
+      showAdminToast('✅ Dish updated!');
+    }
+  } else {
+    // Add new
+    const maxId = Math.max(...dishes.map(d=>d.id), 0);
+    const newDish = {
+      id: maxId+1, name, cat, type,
+      price: '₹'+price, rating,
+      img: imgData || ''
+    };
+    dishes.push(newDish);
+    showAdminToast('✅ Dish added: '+name+'!');
+  }
+
+  saveCustomDishes(dishes);
+  // Refresh live menu
+  menu.length=0; dishes.forEach(d=>menu.push(d));
+  renderGrid(); renderSidebar();
+
+  resetDishForm();
+  switchAdminTab(2);
+  renderAdminDishes();
+  renderAdminDashboard();
+}
+
+// ── Edit dish ──
+function editDish(id){
+  const dish = getMergedMenu().find(d=>d.id===id);
+  if(!dish) return;
+  switchAdminTab(3);
+  document.getElementById('adminFormTitle').textContent = '✏️ Edit Dish';
+  document.getElementById('editDishId').value = id;
+  document.getElementById('dishName').value = dish.name;
+  document.getElementById('dishCat').value = dish.cat;
+  document.getElementById('dishType').value = dish.type;
+  document.getElementById('dishPrice').value = dish.price.replace('₹','');
+  document.getElementById('dishRating').value = dish.rating;
+  document.getElementById('adminFormSubmit').textContent = '💾 Save Changes';
+  document.getElementById('adminFormCancel').style.display='block';
+
+  // Show existing image
+  if(dish.img){
+    document.getElementById('dishImgData').value = dish.img.startsWith('data:') ? dish.img : '';
+    const wrap = document.getElementById('imgUploadWrap');
+    wrap.classList.add('has-img');
+    wrap.innerHTML = `<img class="img-preview" src="${dish.img}" onerror="this.src=''"><div class="img-upload-text" style="font-size:.72rem;"><span>Current photo</span> — tap to change</div>`;
+    wrap.onclick = ()=>document.getElementById('dishImgInput').click();
+  }
+  document.getElementById('adminScroll').scrollTop=0;
+}
+
+// ── Delete dish ──
+function deleteDish(id){
+  if(!confirm('Delete this dish?')) return;
+  let dishes = getMergedMenu().filter(d=>d.id!==id);
+  saveCustomDishes(dishes);
+  menu.length=0; dishes.forEach(d=>menu.push(d));
+  renderGrid(); renderSidebar();
+  renderAdminDishes(); renderAdminDashboard();
+  showAdminToast('🗑️ Dish deleted!');
+}
+
+// ── Reset form ──
+function resetDishForm(){
+  document.getElementById('adminFormTitle').textContent='➕ Add New Dish';
+  document.getElementById('editDishId').value='';
+  document.getElementById('dishName').value='';
+  document.getElementById('dishPrice').value='';
+  document.getElementById('dishRating').value='';
+  document.getElementById('dishDesc').value='';
+  document.getElementById('dishImgData').value='';
+  document.getElementById('adminFormSubmit').textContent='✅ Add Dish';
+  document.getElementById('adminFormCancel').style.display='none';
+  const wrap = document.getElementById('imgUploadWrap');
+  wrap.classList.remove('has-img');
+  wrap.innerHTML=`<span class="img-upload-icon">📷</span><div class="img-upload-text">Tap to <span>upload photo</span> from your phone/PC</div><div style="font-size:0.68rem;color:#bbb;margin-top:4px;">JPG, PNG, WEBP supported</div>`;
+  wrap.onclick=()=>document.getElementById('dishImgInput').click();
+}
+
+// ── Load custom dishes on startup ──
+function initCustomDishes(){
+  const custom = getCustomDishes();
+  if(custom && custom.length){
+    menu.length=0; custom.forEach(d=>menu.push(d));
+  } else {
+    // Save default menu to localStorage for future edits
+    saveCustomDishes(menu.slice());
+  }
+}
+
+// ── Admin toast ──
+function showAdminToast(msg){
+  const t = document.getElementById('adminToast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(t._t);
+  t._t=setTimeout(()=>t.classList.remove('show'),2400);
+}
+
+// ── Wire events on DOM ready ──
+document.addEventListener('DOMContentLoaded',function(){
+  document.getElementById('adminFab').addEventListener('click',openAdmin);
+  document.getElementById('adminOverlay').addEventListener('click',closeAdmin);
+  document.getElementById('adminLoginClose').addEventListener('click',closeAdmin);
+  document.getElementById('adminMainClose').addEventListener('click',closeAdmin);
+  // Init custom dishes
+  initCustomDishes();
+});
+
+function scrollToTop(){ window.scrollTo({top:0,behavior:'smooth'}); }
+renderGrid();
+renderLiked();
+renderSidebar();
+</script>
+
+<!-- ADMIN FAB BUTTON -->
+<button class="admin-fab" id="adminFab" title="Admin Panel">⚙️</button>
+
+<!-- ADMIN OVERLAY -->
+<div class="admin-overlay" id="adminOverlay"></div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-sheet" id="adminSheet">
+
+  <!-- LOGIN SCREEN -->
+  <div id="adminLoginScreen" style="display:flex;flex-direction:column;height:100%;background:#F7F4F0;">
+    <div class="admin-header">
+      <div class="admin-header-title">🔐 Admin Login</div>
+      <button class="admin-header-close" id="adminLoginClose">✕</button>
+    </div>
+    <div class="admin-login-wrap">
+      <div class="admin-login-icon">🍛</div>
+      <div class="admin-login-title">Patil & Sons</div>
+      <div class="admin-login-sub">Owner / Manager login karein<br>menu manage karne ke liye</div>
+      <div class="admin-login-form">
+        <div id="adminLoginError" class="admin-login-error"></div>
+        <div class="admin-field">
+          <label>Password</label>
+          <input class="admin-input" id="adminPassInput" type="password" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')checkAdminPass()">
+        </div>
+        <button class="admin-submit" onclick="checkAdminPass()">🔓 Login to Admin Panel</button>
+        <div style="text-align:center;margin-top:12px;font-size:0.72rem;color:#aaa;">Default password: <strong>patil2024</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN ADMIN PANEL -->
+  <div id="adminMainScreen" style="display:none;flex-direction:column;height:100%;">
+    <div class="admin-header">
+      <div class="admin-header-title">⚙️ Admin Panel</div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button onclick="adminLogout()" style="background:rgba(255,255,255,0.12);border:none;color:#fff;padding:6px 12px;border-radius:20px;font-size:0.72rem;font-weight:700;cursor:pointer;">Logout</button>
+        <button class="admin-header-close" id="adminMainClose">✕</button>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="admin-tabs">
+      <div class="admin-tab active" id="aTab1" onclick="switchAdminTab(1)">📊 Dashboard</div>
+      <div class="admin-tab" id="aTab2" onclick="switchAdminTab(2)">🍽️ Dishes</div>
+      <div class="admin-tab" id="aTab3" onclick="switchAdminTab(3)">➕ Add Dish</div>
+    </div>
+
+    <div class="admin-scroll" id="adminScroll">
+
+      <!-- TAB 1: DASHBOARD -->
+      <div id="adminTab1">
+        <div class="admin-stats" id="adminStats"></div>
+        <div style="background:#dd9696;border-radius:16px;padding:16px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;margin-bottom:12px;">📦 Recent Orders</div>
+          <div id="adminRecentOrders"></div>
+        </div>
+        <div style="background:#fff;border-radius:16px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;margin-bottom:12px;">⚙️ Settings</div>
+          <div style="margin-bottom:10px;">
+            <label style="display:block;font-size:0.72rem;font-weight:800;color:#555;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;">Admin Password</label>
+            <div style="display:flex;gap:8px;">
+              <input class="admin-input" id="newPassInput" type="password" placeholder="New password" style="flex:1;">
+              <button onclick="changeAdminPass()" style="background:var(--saffron);color:#fff;border:none;border-radius:12px;padding:0 16px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;font-size:0.82rem;">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: DISHES LIST -->
+      <div id="adminTab2" style="display:none;">
+        <div class="admin-search-wrap">
+          <span class="admin-search-icon">🔍</span>
+          <input class="admin-search" id="adminSearchDish" placeholder="Search dishes..." oninput="renderAdminDishes()">
+        </div>
+        <div class="admin-filter-row" id="adminFilterRow"></div>
+        <div id="adminDishList"></div>
+      </div>
+
+      <!-- TAB 3: ADD/EDIT DISH -->
+      <div id="adminTab3" style="display:none;">
+        <div class="admin-form">
+          <div class="admin-form-title" id="adminFormTitle">➕ Add New Dish</div>
+          <input type="hidden" id="editDishId" value="">
+
+          <!-- Image upload -->
+          <div class="admin-field">
+            <label>Dish Photo</label>
+            <div class="img-upload-wrap" id="imgUploadWrap" onclick="document.getElementById('dishImgInput').click()">
+              <span class="img-upload-icon" id="imgUploadIcon">📷</span>
+              <div class="img-upload-text">Tap to <span>upload photo</span> from your phone/PC</div>
+              <div style="font-size:0.68rem;color:#bbb;margin-top:4px;">JPG, PNG, WEBP supported</div>
+            </div>
+            <input type="file" id="dishImgInput" accept="image/*" style="display:none" onchange="handleDishImg(this)">
+            <input type="hidden" id="dishImgData" value="">
+          </div>
+
+          <div class="admin-field">
+            <label>Dish Name *</label>
+            <input class="admin-input" id="dishName" type="text" placeholder="e.g. Butter Chicken">
+          </div>
+
+          <div class="admin-field-row">
+            <div class="admin-field">
+              <label>Category *</label>
+              <select class="admin-input" id="dishCat">
+                <option value="maharashtrian">🌾 Maharashtrian</option>
+                <option value="north">🍲 North Indian</option>
+                <option value="snacks">🥙 Snacks & Starters</option>
+                <option value="rice">🍛 Rice & Biryani</option>
+                <option value="beverages">☕ Beverages</option>
+                <option value="desserts">🍮 Sweets & Desserts</option>
+                <option value="chicken">🍗 Chicken</option>
+                <option value="mutton">🥩 Mutton</option>
+                <option value="egg">🥚 Egg Dishes</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label>Type *</label>
+              <select class="admin-input" id="dishType">
+                <option value="veg">🥗 Veg</option>
+                <option value="nonveg">🍗 Non-Veg</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="admin-field-row">
+            <div class="admin-field">
+              <label>Price (₹) *</label>
+              <input class="admin-input" id="dishPrice" type="number" placeholder="e.g. 99" min="1">
+            </div>
+            <div class="admin-field">
+              <label>Rating</label>
+              <input class="admin-input" id="dishRating" type="number" placeholder="4.5" min="1" max="5" step="0.1">
+            </div>
+          </div>
+
+          <div class="admin-field">
+            <label>Description (optional)</label>
+            <input class="admin-input" id="dishDesc" type="text" placeholder="e.g. Authentic Maharashtrian flavors">
+          </div>
+
+          <button class="admin-submit" id="adminFormSubmit" onclick="saveDish()">✅ Add Dish</button>
+          <button class="admin-cancel" id="adminFormCancel" onclick="resetDishForm()" style="display:none;">✕ Cancel Edit</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN TOAST -->
+<div id="adminToast"></div>
+
+</body>
+</html>
