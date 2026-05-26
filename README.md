@@ -1,12 +1,12 @@
-# 🍛 Jadhav & Sons — Restaurant Backend
+# 🍛 Patil & Sons — Restaurant Backend
 
 ## Files
 ```
-jadhav_backend/
+Patil_backend/
 ├── app.py                 ← Flask backend (Python)
-├── jadhav-and-sons.html   ← Frontend website
+├── Patil-and-sons.html   ← Frontend website
 ├── db_check.py            ← Database viewer
-└── jadhav_restaurant.db   ← SQLite database (auto-created)
+└── Patil_restaurant.db   ← SQLite database (auto-created)
 ```
 
 ## Setup & Run
@@ -50,4 +50,4 @@ http://localhost:5000
 - **reviews** — Customer reviews
 
 ## Admin Access
-Header: `X-Admin-Key: jadhav_admin_2024`
+Header: `X-Admin-Key: Patil_admin_2026`
